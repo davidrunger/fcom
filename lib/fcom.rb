@@ -1,4 +1,6 @@
-require "fcom/version"
+# frozen_string_literal: true
+
+require 'fcom/version'
 
 module Fcom
   class Error < StandardError; end
