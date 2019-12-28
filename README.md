@@ -4,19 +4,14 @@ This is a CLI tool that I use to parse the git history for a repo.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+The easiest way to install `fcom` is via the
+[`specific_install`](https://github.com/rdp/specific_install) gem, which will pull and build the
+`fcom` gem directly from the `master` branch of this repo:
 
-```ruby
-gem 'fcom'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install fcom
+gem install specific_install
+gem specific_install davidrunger/fcom
+```
 
 ## Dependencies
 
