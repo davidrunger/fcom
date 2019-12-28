@@ -1,2 +1,4 @@
 Metrics/LineLength:
   Max: 100
+Style/EmptyCaseCondition:
+    Enabled: false
