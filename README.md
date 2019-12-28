@@ -1,6 +1,6 @@
-# `fcom`
+# `fcom` ("find commit(s)")
 
-This is a CLI tool that I use to parse the git history for a repo.
+This is a CLI tool that I use to parse the git history of a repo.
 
 ## Installation
 
