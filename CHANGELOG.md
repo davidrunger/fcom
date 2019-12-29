@@ -1,3 +1,7 @@
+## Unreleased
+### Added
+- Determine default repo name from git origin remote, if possible
+
 ## 0.2.2 - 2019-12-28
 ### Changed
 - Improved documentation
