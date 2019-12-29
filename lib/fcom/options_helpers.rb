@@ -12,6 +12,10 @@ module Fcom::OptionsHelpers
     @options.regex?
   end
 
+  def repo
+    @options[:repo]
+  end
+
   def search_string
     @options.arguments.first
   end
