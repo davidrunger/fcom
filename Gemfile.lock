@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fcom (0.2.1)
+    fcom (0.2.2)
       colorize (~> 0.8)
       slop (~> 4.7)
 

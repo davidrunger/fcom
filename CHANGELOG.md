@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.2 - 2019-12-28
 ### Changed
 - Improved documentation
 
