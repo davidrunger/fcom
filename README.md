@@ -2,6 +2,11 @@
 
 This is a CLI tool that I use to parse the git history of a repo.
 
+For example, if I use `fcom` to search this repo with `fcom "line.(green|red)" --regex --repo
+davidrunger/fcom`, I get this output:
+
+![](https://s3.amazonaws.com/screens.davidrunger.com/2019-12-28-20-50-09-oect2(1).png)
+
 ## Installation
 
 The easiest way to install `fcom` is via the
