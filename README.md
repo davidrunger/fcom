@@ -35,6 +35,7 @@ Examples:
   fcom 'def update'
   fcom "def update" --days 60
   fcom "[Uu]ser.*slug" -d 365 --regex
+  fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom
 
     -d, --days        number of days to search back
     -r, --regex       interpret search string as a regular expression

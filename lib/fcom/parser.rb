@@ -41,7 +41,7 @@ class Fcom::Parser
           puts("\n\n")
           title, sha, author, date = previous_commit.split('|')
           sha_with_url =
-            "#{sha[0, 7]} ( https://github.com/hired/hired/commit/#{sha[0, 7]} )"
+            "#{sha[0, 7]} ( https://github.com/#{repo}/commit/#{sha[0, 7]} )"
           puts([title, sha_with_url, author, date])
           puts('==============================================')
           previous_commit = nil
