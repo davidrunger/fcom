@@ -2,11 +2,37 @@
 
 # frozen_string_literal: true
 
+require 'slop'
 require_relative '../lib/fcom.rb'
 
-is_parse_mode = (ARGV[3] == 'PARSE_MODE=TRUE')
-if is_parse_mode
-  Fcom::Parser.new(ARGV).parse
+opts = Slop.parse do |o|
+  o.banner = <<~BANNER
+
+    Usage: fcom <search string> [options]
+
+    Examples:
+      fcom update
+      fcom "def update"
+      fcom "def update" --days 60
+      fcom "[Uu]ser.*slug" -d 365 --regex
+  BANNER
+
+  o.integer '-d', '--days', 'number of days to search back'
+  o.bool '-r', '--regex', 'interpret search string as a regular expression', default: false
+  o.bool '-p', '--parse-mode', 'whether we are in parse mode', default: false, help: false
+
+  o.on '-v', '--version', 'print the version' do
+    puts(Fcom::VERSION)
+    exit
+  end
+  o.on '-h', '--help', 'print this help information' do
+    puts(o)
+    exit
+  end
+end
+
+if opts.parse_mode?
+  Fcom::Parser.new(opts).parse
 else
-  Fcom::Querier.new(ARGV).query
+  Fcom::Querier.new(opts).query
 end
