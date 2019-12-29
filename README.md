@@ -22,13 +22,15 @@ gem specific_install davidrunger/fcom
 
 This gem assumes that you have `git` and `rg` (ripgrep) installed.
 
-## Usage
+## Basic usage
 
 ```
-$ fcom <search string> [number of days to search] [enter "regex" if search string should be interpreted as a regex]
+$ fcom <search string> [options]
 ```
 
-#### Examples
+#### Available options and examples
+
+After installing, execute `fcom --help` to see usage examples and available options.
 
 ```
 $ fcom --help
