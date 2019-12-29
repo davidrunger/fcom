@@ -4,3 +4,9 @@ Style/ClassAndModuleChildren:
     EnforcedStyle: compact
 Style/EmptyCaseCondition:
     Enabled: false
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma

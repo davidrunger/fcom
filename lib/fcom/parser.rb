@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 require 'colorize'
+require_relative './options_helpers.rb'
 
 # This class parses (and then reprints some of) STDIN according to the options passed to `fcom`.
 class Fcom::Parser
-  def initialize(argv)
-    @argv = argv
+  include ::Fcom::OptionsHelpers
+
+  def initialize(options)
+    @options = options
   end
 
   # rubocop:disable Metrics/AbcSize
@@ -14,9 +17,8 @@ class Fcom::Parser
   # rubocop:disable Metrics/PerceivedComplexity
   # rubocop:disable Metrics/BlockLength
   def parse
-    use_regex = (@argv[2] == 'regex')
-    expression_to_match = @argv[0]
-    expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless use_regex
+    expression_to_match = search_string
+    expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless regex_mode?
     regex = /(\+|\-)\s?.*#{expression_to_match}.*/
 
     previous_commit = nil

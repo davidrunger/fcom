@@ -26,10 +26,20 @@ $ fcom <search string> [number of days to search] [enter "regex" if search strin
 #### Examples
 
 ```
-fcom update
-fcom "def update"
-fcom "def update" 60
-fcom "[Uu]ser.*slug" 365 regex
+$ fcom --help
+
+Usage: fcom <search string> [options]
+
+Examples:
+  fcom update
+  fcom 'def update'
+  fcom "def update" --days 60
+  fcom "[Uu]ser.*slug" -d 365 --regex
+
+    -d, --days        number of days to search back
+    -r, --regex       interpret search string as a regular expression
+    -v, --version     print the version
+    -h, --help        print this help information
 ```
 
 ## Development
