@@ -44,6 +44,7 @@ Examples:
   fcom "[Uu]ser.*slug" -d 365 --regex
   fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom
 
+    --repo            GitHub repo (in form `username/repo`)
     -d, --days        number of days to search back
     -r, --regex       interpret search string as a regular expression
     -v, --version     print the version

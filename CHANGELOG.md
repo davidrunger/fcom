@@ -1,3 +1,7 @@
+## Unreleased
+### Changed
+- Improved documentation
+
 ## 0.2.1 - 2019-12-28
 ### Added
 - Add `--repo` option, which is used in the GitHub links that are printed for matching commits
