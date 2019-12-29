@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-require 'fcom/version'
-
+# This `Fcom` module is the namespace within which most of the gem's code is written.
 module Fcom
 end
+
+require_relative './fcom/parser'
+require_relative './fcom/querier'
+require_relative './fcom/version'

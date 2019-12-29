@@ -1,4 +1,6 @@
 Metrics/LineLength:
   Max: 100
+Style/ClassAndModuleChildren:
+    EnforcedStyle: compact
 Style/EmptyCaseCondition:
     Enabled: false
