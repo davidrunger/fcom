@@ -12,14 +12,14 @@ opts = Slop.parse do |o|
 
     Examples:
       fcom update
-      fcom "def update"
+      fcom 'def update'
       fcom "def update" --days 60
       fcom "[Uu]ser.*slug" -d 365 --regex
       fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom
   BANNER
 
-  o.integer '-d', '--days', 'number of days to search back'
   o.string '--repo', 'GitHub repo (in form `username/repo`)', default: 'username/repo'
+  o.integer '-d', '--days', 'number of days to search back'
   o.bool '-r', '--regex', 'interpret search string as a regular expression', default: false
   o.bool '-p', '--parse-mode', 'whether we are in parse mode', default: false, help: false
 
