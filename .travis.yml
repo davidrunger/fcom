@@ -4,3 +4,7 @@ language: ruby
 cache: bundler
 rvm:
   - 2.6.5
+notifications:
+  email:
+    on_success: never
+    on_failure: never
