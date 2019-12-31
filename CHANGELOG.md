@@ -1,3 +1,7 @@
+## Unreleased
+### Tests
+- Don't send email notifications about Travis build results
+
 ## 0.2.4 - 2019-12-31
 ### Tests
 - Added tests
