@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'pry'
+require 'slop'
 require 'fcom'
 
 RSpec.configure do |config|

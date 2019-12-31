@@ -1,9 +1,13 @@
+Layout/DotPosition:
+  EnforcedStyle: trailing
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
 Metrics/LineLength:
   Max: 100
 Style/ClassAndModuleChildren:
-    EnforcedStyle: compact
+  EnforcedStyle: compact
 Style/EmptyCaseCondition:
-    Enabled: false
+  Enabled: false
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 Style/TrailingCommaInArrayLiteral:
