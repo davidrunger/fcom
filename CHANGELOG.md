@@ -1,3 +1,7 @@
+## Unreleased
+### Tests
+- Added tests
+
 ## 0.2.3 - 2019-12-29
 ### Added
 - Determine default repo name from git origin remote, if possible
