@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.17 - 2020-06-05
 ### Fixed
 - Print warning about missing `.fcom.yml` config file before executing querier
 
