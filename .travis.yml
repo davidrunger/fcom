@@ -9,4 +9,5 @@ notifications:
     on_success: never
     on_failure: never
 script:
+  - bin/rubocop $(git ls-tree -r HEAD --name-only) --force-exclusion --format clang
   - bin/rspec

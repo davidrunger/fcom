@@ -8,33 +8,34 @@ require_relative '../lib/fcom.rb'
 git_helpers = Fcom::GitHelpers.new
 default_repo = git_helpers.repo || 'username/repo'
 
-opts = Slop.parse do |o|
-  o.banner = <<~BANNER
+opts =
+  Slop.parse do |o|
+    o.banner = <<~BANNER
 
-    Usage: fcom <search string> [options]
+      Usage: fcom <search string> [options]
 
-    Examples:
-      fcom update
-      fcom 'def update'
-      fcom "def update" --days 60
-      fcom "[Uu]ser.*slug" -d 365 --regex
-      fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom
-  BANNER
+      Examples:
+        fcom update
+        fcom 'def update'
+        fcom "def update" --days 60
+        fcom "[Uu]ser.*slug" -d 365 --regex
+        fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom
+    BANNER
 
-  o.string '--repo', 'GitHub repo (in form `username/repo`)', default: default_repo
-  o.integer '-d', '--days', 'number of days to search back'
-  o.bool '-r', '--regex', 'interpret search string as a regular expression', default: false
-  o.bool '-p', '--parse-mode', 'whether we are in parse mode', default: false, help: false
+    o.string('--repo', 'GitHub repo (in form `username/repo`)', default: default_repo)
+    o.integer('-d', '--days', 'number of days to search back')
+    o.bool('-r', '--regex', 'interpret search string as a regular expression', default: false)
+    o.bool('-p', '--parse-mode', 'whether we are in parse mode', default: false, help: false)
 
-  o.on '-v', '--version', 'print the version' do
-    puts(Fcom::VERSION)
-    exit
+    o.on('-v', '--version', 'print the version') do
+      puts(Fcom::VERSION)
+      exit
+    end
+    o.on('-h', '--help', 'print this help information') do
+      puts(o)
+      exit
+    end
   end
-  o.on '-h', '--help', 'print this help information' do
-    puts(o)
-    exit
-  end
-end
 
 if opts.parse_mode?
   Fcom::Parser.new(opts).parse

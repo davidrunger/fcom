@@ -11,9 +11,7 @@ class Fcom::Querier
     @options = options
   end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
   # rubocop:disable Metrics/PerceivedComplexity
   def query
     expression_to_match = search_string
@@ -25,18 +23,23 @@ class Fcom::Querier
     end
 
     quote = expression_to_match.include?('"') ? "'" : '"'
-    # rubocop:disable Style/IfUnlessModifier
+
     command = <<~COMMAND.tr("\n", ' ')
-      git log #{"--since=#{days}.day" unless days.nil?} --full-diff --format="commit %s|%H|%an|%cr (%ci)" --source -p . |
+      git log
+        #{"--since=#{days}.day" unless days.nil?}
+        --full-diff
+        --format="commit %s|%H|%an|%cr (%ci)" --source -p . |
         rg #{quote}(#{expression_to_match})|(^commit )|(^diff )#{quote} --color never |
-        fcom #{quote}#{search_string}#{quote} #{"--days #{days}" if days} #{'--regex' if regex_mode?} --parse-mode --repo #{repo}
+        fcom #{quote}#{search_string}#{quote}
+        #{"--days #{days}" if days}
+        #{'--regex' if regex_mode?}
+        --parse-mode
+        --repo #{repo}
     COMMAND
-    # rubocop:enable Style/IfUnlessModifier
+
     puts("Executing command: #{command}")
     system(command)
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/CyclomaticComplexity
-  # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
 end
