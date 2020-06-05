@@ -1,3 +1,8 @@
+## Unreleased
+### Tests
+- Added logging of how long each example takes to execute
+- Stubbed `Fcom::GitHelpers#repo` in tests to improve spec performance
+
 ## 0.2.10 - 2020-06-05
 ### Changed
 - Set `Fcom.logger.level` for both querier and parser

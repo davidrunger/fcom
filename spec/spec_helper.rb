@@ -31,6 +31,9 @@ RSpec.configure do |config|
     # Note: you can also put `@__started = Time.now` anywhere in your spec, to start the timer
     # at a different point
     @__started = Time.now
+
+    # stub this method in all tests because otherwise it calls `git remote ...` which is really slow
+    allow_any_instance_of(Fcom::GitHelpers).to receive(:repo).and_return('testuser/testrepo')
   end
 
   config.after(:each) do |example|
