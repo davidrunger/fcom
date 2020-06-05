@@ -31,6 +31,16 @@ class Fcom
       Fcom::ConfigFileOptions.new
     end
 
+    def warn_if_config_file_repo_option_missing
+      if config_file_options.repo.blank?
+        puts(<<~WARNING.yellow)
+          Warning: you have not specified a `repo` option in an `.fcom.yml` file.
+          This will cause `fcom` to execute more slowly than necessary.
+          See https://github.com/davidrunger/fcom/#readme for more info.
+        WARNING
+      end
+    end
+
     def define_slop_options(options)
       git_helpers = Fcom::GitHelpers.new
       default_repo = config_file_options.repo || git_helpers.repo || 'username/repo'
