@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.12 - 2020-06-05
 ### Docs
 - Update the illustrated `--help` output in `README.md` to reflect the `-i`/`--ignore-case` and
   `--debug` options.
