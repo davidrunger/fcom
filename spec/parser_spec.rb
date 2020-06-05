@@ -25,7 +25,6 @@ RSpec.describe Fcom::Parser do
     end
 
     it 'prints stuff' do
-      expect(STDOUT).to receive(:puts).with("\n\n").ordered
       expect(STDOUT).to receive(:puts).with([
         'Add rubocop as a development dependency',
         '066c52f ( https://github.com/username/reponame/commit/066c52f )',
