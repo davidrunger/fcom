@@ -29,6 +29,8 @@ Style/DocumentationMethod:
   Enabled: false
 Style/EmptyCaseCondition:
   Enabled: false
+Style/GuardClause:
+  Enabled: false
 Style/ImplicitRuntimeError:
   Enabled: false
 Style/MethodCallWithArgsParentheses:
