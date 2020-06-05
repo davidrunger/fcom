@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.5 - 2020-06-05
 ### Added
 - Allow filtering results to a specific path (directory or file) via `-p`/`--path` option
 
