@@ -1,3 +1,7 @@
+## Unreleased
+### Tests
+- Stub `ConfigFileOptions#config_file_exists?` to return `false` in tests
+
 ## 0.2.17 - 2020-06-05
 ### Fixed
 - Print warning about missing `.fcom.yml` config file before executing querier
