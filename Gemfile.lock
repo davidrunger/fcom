@@ -11,10 +11,10 @@ PATH
   remote: .
   specs:
     fcom (0.2.8)
-      activesupport
-      colorize
-      memoist
-      slop
+      activesupport (~> 6.0)
+      colorize (~> 0.8)
+      memoist (~> 0.16)
+      slop (~> 4.8)
 
 GEM
   remote: https://rubygems.org/
