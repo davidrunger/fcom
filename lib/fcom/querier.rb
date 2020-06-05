@@ -9,8 +9,6 @@ class Fcom::Querier
 
   def initialize(options)
     @options = options
-    # Note: mutating the globally accessible `Fcom.logger` constant like this is not thread-safe
-    Fcom.logger.level = debug? ? Logger::DEBUG : Logger::WARN
   end
 
   # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity

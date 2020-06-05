@@ -32,6 +32,9 @@ opts =
     end
   end
 
+# Note: mutating the globally accessible `Fcom.logger` constant like this is not thread-safe
+Fcom.logger.level = opts.debug? ? Logger::DEBUG : Logger::WARN
+
 if opts.parse_mode?
   Fcom::Parser.new(opts).parse
 else
