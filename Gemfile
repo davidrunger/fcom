@@ -11,6 +11,7 @@ gemspec
 
 group :development do
   gem 'bundler', require: false
+  gem 'guard-espect', require: false, github: 'davidrunger/guard-espect'
   gem 'pry'
   gem 'pry-byebug'
   gem 'rake', require: false
