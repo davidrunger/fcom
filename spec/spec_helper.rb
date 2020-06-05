@@ -16,3 +16,9 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+def stubbed_slop_options(arguments_string)
+  options = Slop::Options.new
+  Fcom.define_slop_options(options)
+  options.parse(arguments_string.split(/\s+/))
+end

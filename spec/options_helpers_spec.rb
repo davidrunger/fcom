@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'slop'
-
 RSpec.describe Fcom::OptionsHelpers do
   subject(:options_helper) do
     instance = class_including_options_helpers.new
@@ -13,12 +11,7 @@ RSpec.describe Fcom::OptionsHelpers do
     klass = Class.new
     klass.include(Fcom::OptionsHelpers)
   end
-  let(:options) do
-    options = Slop::Options.new
-    options.integer('-d', '--days')
-    options.bool('-r', '--regex')
-    options.parse(arguments_string.split(/\s+/))
-  end
+  let(:options) { stubbed_slop_options(arguments_string) }
   let(:arguments_string) { 'the_search_target' }
 
   describe '#days' do
