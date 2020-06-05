@@ -14,7 +14,7 @@ RSpec.describe Fcom::Querier do
         with(<<~COMMAND.squish)
           git log --full-diff --format="commit %s|%H|%an|%cr (%ci)" --source -p . |
           rg "(the_search_string)|(^commit )|(^diff )" --color never |
-          fcom "the_search_string" --parse-mode --repo davidrunger/fcom
+          fcom "the_search_string" --path . --parse-mode --repo davidrunger/fcom
         COMMAND
 
       query

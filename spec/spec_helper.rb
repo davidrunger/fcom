@@ -15,6 +15,13 @@ RSpec.configure do |config|
   config.expect_with(:rspec) do |c|
     c.syntax = :expect
   end
+
+  config.before(:suite) do
+    # Some of the specs involve somewhat lengthy strings; increase the size of the printed output
+    # for easier comparison of expected vs actual strings, in the event of a failure.
+    # https://github.com/rspec/rspec-expectations/issues/ 991#issuecomment-302863645
+    RSpec::Support::ObjectFormatter.default_instance.max_formatted_output_length = 2_000
+  end
 end
 
 def stubbed_slop_options(arguments_string)

@@ -8,8 +8,16 @@ module Fcom::OptionsHelpers
     @options[:days]
   end
 
+  def path
+    @options[:path]
+  end
+
   def regex_mode?
     @options.regex?
+  end
+
+  def debug?
+    @options.debug?
   end
 
   def repo

@@ -16,6 +16,7 @@ opts =
         fcom 'def update'
         fcom "def update" --days 60
         fcom "[Uu]ser.*slug" -d 365 --regex
+        fcom options --path spec/
         fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom
     BANNER
 

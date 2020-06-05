@@ -42,13 +42,15 @@ Examples:
   fcom 'def update'
   fcom "def update" --days 60
   fcom "[Uu]ser.*slug" -d 365 --regex
+  fcom options --path spec/
   fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom
 
-    --repo            GitHub repo (in form `username/repo`)
-    -d, --days        number of days to search back
-    -r, --regex       interpret search string as a regular expression
-    -v, --version     print the version
-    -h, --help        print this help information
+    --repo         GitHub repo (in form `username/repo`)
+    -d, --days     number of days to search back
+    -r, --regex    interpret search string as a regular expression
+    -p, --path     path (directory or file) used to filter results
+    -v, --version  print the version
+    -h, --help     print this help information
 ```
 
 ## Development
