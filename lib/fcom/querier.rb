@@ -24,13 +24,15 @@ class Fcom::Querier
 
     quote = expression_to_match.include?('"') ? "'" : '"'
 
-    command = <<~COMMAND.tr("\n", ' ')
+    command = <<~COMMAND.squish
       git log
         #{"--since=#{days}.day" unless days.nil?}
         --full-diff
         --format="commit %s|%H|%an|%cr (%ci)" --source -p . |
-        rg #{quote}(#{expression_to_match})|(^commit )|(^diff )#{quote} --color never |
-        fcom #{quote}#{search_string}#{quote}
+
+      rg #{quote}(#{expression_to_match})|(^commit )|(^diff )#{quote} --color never |
+
+      fcom #{quote}#{search_string}#{quote}
         #{"--days #{days}" if days}
         #{'--regex' if regex_mode?}
         --parse-mode
