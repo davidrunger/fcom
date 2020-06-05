@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.16 - 2020-06-05
 ### Tests
 - Don't print debug statement(s) when executing tests
 
