@@ -3,7 +3,7 @@
 RSpec.describe Fcom::Parser do
   subject(:parser) { Fcom::Parser.new(options) }
 
-  let(:options) { Slop::Options.new.parse(%w[the_search_string]) }
+  let(:options) { stubbed_slop_options('the_search_string --repo username/reponame') }
 
   before do
     expect(STDIN).to receive(:each) do |_stdin, &blk|
@@ -37,7 +37,7 @@ RSpec.describe Fcom::Parser do
       expect(STDOUT).to receive(:puts).with("\n\n").ordered
       expect(STDOUT).to receive(:puts).with([
         'Add rubocop as a development dependency',
-        '066c52f ( https://github.com//commit/066c52f )',
+        '066c52f ( https://github.com/username/reponame/commit/066c52f )',
         'David Runger',
         '3 days ago (2019-12-28 10:33:45 -0800)',
       ]).ordered

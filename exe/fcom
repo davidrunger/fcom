@@ -5,9 +5,6 @@
 require 'slop'
 require_relative '../lib/fcom.rb'
 
-git_helpers = Fcom::GitHelpers.new
-default_repo = git_helpers.repo || 'username/repo'
-
 opts =
   Slop.parse do |o|
     o.banner = <<~BANNER
@@ -22,10 +19,7 @@ opts =
         fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom
     BANNER
 
-    o.string('--repo', 'GitHub repo (in form `username/repo`)', default: default_repo)
-    o.integer('-d', '--days', 'number of days to search back')
-    o.bool('-r', '--regex', 'interpret search string as a regular expression', default: false)
-    o.bool('-p', '--parse-mode', 'whether we are in parse mode', default: false, help: false)
+    Fcom.define_slop_options(o)
 
     o.on('-v', '--version', 'print the version') do
       puts(Fcom::VERSION)
