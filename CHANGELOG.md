@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.11 - 2020-06-05
 ### Tests
 - Added logging of how long each example takes to execute
 - Stubbed `Fcom::GitHelpers#repo` in tests to improve spec performance
