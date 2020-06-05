@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.14 - 2020-06-05
 ### Added
 - Print warning if `.fcom.yml` config file does not exist (or it does not specify a `repo` option)
 
