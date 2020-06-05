@@ -1,12 +1,41 @@
+AllCops:
+  EnabledByDefault: true
+Bundler/GemComment:
+  Enabled: false
 Layout/DotPosition:
   EnforcedStyle: trailing
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
-Metrics/LineLength:
+Layout/LineLength:
   Max: 100
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
+Style/ConstantVisibility:
+  Enabled: false
+Style/Copyright:
+  Enabled: false
+Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: false
+Style/DocumentationMethod:
+  Enabled: false
 Style/EmptyCaseCondition:
+  Enabled: false
+Style/ImplicitRuntimeError:
+  Enabled: false
+Style/MethodCallWithArgsParentheses:
+  IgnoredMethods:
+    - gem
+    - fail
+    - include
+    - load
+    - p
+    - print
+    - puts
+    - require
+    - require_relative
+    - ruby
+    - source
+Style/MissingElse:
   Enabled: false
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma

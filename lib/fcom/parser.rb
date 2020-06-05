@@ -11,19 +11,17 @@ class Fcom::Parser
     @options = options
   end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/PerceivedComplexity
-  # rubocop:disable Metrics/BlockLength
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/MethodLength, Metrics/PerceivedComplexity
   def parse
     expression_to_match = search_string
     expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless regex_mode?
-    regex = /(\+|\-)\s?.*#{expression_to_match}.*/
+    regex = /(\+|-)\s?.*#{expression_to_match}.*/
 
     previous_commit = nil
     filename = nil
 
+    # rubocop:disable Metrics/BlockLength
     STDIN.each do |line|
       line.chomp!
       if (match = line.match(/^commit (.*)/)&.[](1))
@@ -61,10 +59,8 @@ class Fcom::Parser
         end
       end
     end
+    # rubocop:enable Metrics/BlockLength
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/CyclomaticComplexity
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/PerceivedComplexity
-  # rubocop:enable Metrics/BlockLength
+  # rubocop:enable Metrics/MethodLength, Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity
 end
