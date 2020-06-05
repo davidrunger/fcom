@@ -24,15 +24,6 @@ RSpec.describe Fcom::Parser do
       STUBBED_STDIN
     end
 
-    let(:expected_output) do
-      <<~EXPECTED_OUTPUT
-        Add rubocop as a development dependency
-        066c52f ( https://github.com//commit/066c52f )
-        David Runger
-        3 days ago (2019-12-28 10:33:45 -0800)
-      EXPECTED_OUTPUT
-    end
-
     it 'prints stuff' do
       expect(STDOUT).to receive(:puts).with("\n\n").ordered
       expect(STDOUT).to receive(:puts).with([
