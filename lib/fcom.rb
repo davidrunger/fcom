@@ -11,6 +11,7 @@ module Fcom
     options.string('--repo', 'GitHub repo (in form `username/repo`)', default: default_repo)
     options.integer('-d', '--days', 'number of days to search back')
     options.bool('-r', '--regex', 'interpret search string as a regular expression', default: false)
+    options.bool('-i', '--ignore-case', 'search case-insensitively', default: false)
     options.string(
       '-p',
       '--path',

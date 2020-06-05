@@ -28,14 +28,21 @@ class Fcom::Querier
       git log
         #{"--since=#{days}.day" unless days.nil?}
         --full-diff
-        --format="commit %s|%H|%an|%cr (%ci)" --source -p #{path} |
+        --format="commit %s|%H|%an|%cr (%ci)"
+        --source
+        -p #{path}
+        |
 
-      rg #{quote}(#{expression_to_match})|(^commit )|(^diff )#{quote} --color never |
+      rg #{quote}(#{expression_to_match})|(^commit )|(^diff )#{quote}
+        --color never
+        #{'--ignore-case' if ignore_case?}
+        |
 
       #{'exe/' if debug?}fcom #{quote}#{search_string}#{quote}
         #{"--days #{days}" if days}
         #{'--regex' if regex_mode?}
         #{'--debug' if debug?}
+        #{'--ignore-case' if ignore_case?}
         --path #{path}
         --parse-mode
         --repo #{repo}

@@ -15,7 +15,11 @@ class Fcom::Parser
   def parse
     expression_to_match = search_string
     expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless regex_mode?
-    regex = /(\+|-)\s?.*#{expression_to_match}.*/
+    regex =
+      Regexp.new(
+        "(\\+|-)\\s?.*#{expression_to_match}.*",
+        ignore_case? ? Regexp::IGNORECASE : nil,
+      )
 
     previous_commit = nil
     filename = nil
