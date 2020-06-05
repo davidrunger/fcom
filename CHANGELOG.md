@@ -1,3 +1,7 @@
+## Unreleased
+### Tests
+- Don't print debug statement(s) when executing tests
+
 ## 0.2.15 - 2020-06-05
 ### Fixed
 - Don't print empty spaces before the first matching commit
