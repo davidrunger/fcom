@@ -10,6 +10,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 group :development do
+  gem 'activesupport'
   gem 'bundler', require: false
   gem 'guard-espect', require: false, github: 'davidrunger/guard-espect'
   gem 'pry'
