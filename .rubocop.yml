@@ -11,6 +11,8 @@ Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 Layout/LineLength:
   Max: 100
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
 Metrics/MethodLength:
   Enabled: false
 Style/ClassAndModuleChildren:

@@ -15,11 +15,39 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  # For test execution time tracking/logging
+  # Borrowed from https://coderwall.com/p/l3nl_w/measure-spec-execution-time
+  spec_stats = {}
+
   config.before(:suite) do
     # Some of the specs involve somewhat lengthy strings; increase the size of the printed output
     # for easier comparison of expected vs actual strings, in the event of a failure.
     # https://github.com/rspec/rspec-expectations/issues/ 991#issuecomment-302863645
     RSpec::Support::ObjectFormatter.default_instance.max_formatted_output_length = 2_000
+    spec_stats = {}
+  end
+
+  config.before(:each) do
+    # Note: you can also put `@__started = Time.now` anywhere in your spec, to start the timer
+    # at a different point
+    @__started = Time.now
+  end
+
+  config.after(:each) do |example|
+    spec_stats[example.full_description] = Float(Time.now) - Float(@__started)
+  end
+
+  config.after(:suite) do
+    puts(<<~LOG)
+
+      -----------------------
+      Spec Performance Report
+      -----------------------
+    LOG
+
+    spec_stats.sort { |a, b| a.last <=> b.last }.each do |spec, took|
+      puts("#{took.round(3).to_s.colorize(:yellow)} secs - #{(spec + '').colorize(:green)}")
+    end
   end
 end
 
