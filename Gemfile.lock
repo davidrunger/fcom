@@ -59,13 +59,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 2.1)
+  bundler
   fcom!
-  pry (~> 0.12)
-  pry-byebug (~> 3.7)
-  rake (~> 13.0)
-  rspec (~> 3.0)
-  rubocop (~> 0.75)
+  pry
+  pry-byebug
+  rake
+  rspec
+  rubocop
 
 BUNDLED WITH
    2.1.4
