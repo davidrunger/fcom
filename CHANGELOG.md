@@ -1,4 +1,7 @@
 ## Unreleased
+### Added
+- Allow filtering results to a specific path (directory or file) via `-p`/`--path` option
+
 ### Tests
 - Don't send email notifications about Travis build results
 

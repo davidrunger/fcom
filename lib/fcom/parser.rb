@@ -11,8 +11,7 @@ class Fcom::Parser
     @options = options
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/MethodLength, Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   def parse
     expression_to_match = search_string
     expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless regex_mode?
@@ -34,7 +33,7 @@ class Fcom::Parser
           when old_filename == new_filename then old_filename
           else "#{old_filename} --> #{new_filename}"
           end
-      elsif line.match?(regex)
+      elsif line.match?(regex) && (filename.blank? || path_match?(filename))
         if previous_commit
           puts("\n\n")
           title, sha, author, date = previous_commit.split('|')
@@ -61,6 +60,13 @@ class Fcom::Parser
     end
     # rubocop:enable Metrics/BlockLength
   end
-  # rubocop:enable Metrics/MethodLength, Metrics/PerceivedComplexity
-  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+
+  private
+
+  def path_match?(filename)
+    return true if path == Fcom::ROOT_PATH
+
+    filename.include?(path.sub(%r{\A\./}, ''))
+  end
 end

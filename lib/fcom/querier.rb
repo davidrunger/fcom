@@ -11,7 +11,7 @@ class Fcom::Querier
     @options = options
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/PerceivedComplexity
   def query
     expression_to_match = search_string
@@ -28,13 +28,15 @@ class Fcom::Querier
       git log
         #{"--since=#{days}.day" unless days.nil?}
         --full-diff
-        --format="commit %s|%H|%an|%cr (%ci)" --source -p . |
+        --format="commit %s|%H|%an|%cr (%ci)" --source -p #{path} |
 
       rg #{quote}(#{expression_to_match})|(^commit )|(^diff )#{quote} --color never |
 
-      fcom #{quote}#{search_string}#{quote}
+      #{'exe/' if debug?}fcom #{quote}#{search_string}#{quote}
         #{"--days #{days}" if days}
         #{'--regex' if regex_mode?}
+        #{'--debug' if debug?}
+        --path #{path}
         --parse-mode
         --repo #{repo}
     COMMAND
@@ -43,5 +45,5 @@ class Fcom::Querier
     system(command)
   end
   # rubocop:enable Metrics/PerceivedComplexity
-  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity
 end
