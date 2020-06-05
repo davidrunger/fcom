@@ -8,6 +8,10 @@ module Fcom::OptionsHelpers
     @options[:days]
   end
 
+  def ignore_case?
+    @options.ignore_case?
+  end
+
   def path
     @options[:path]
   end
