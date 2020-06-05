@@ -5,6 +5,8 @@ Bundler/GemComment:
   Enabled: false
 Layout/DotPosition:
   EnforcedStyle: trailing
+Layout/FirstArgumentIndentation:
+  Enabled: false
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 Layout/LineLength:
@@ -18,6 +20,8 @@ Style/ConstantVisibility:
 Style/Copyright:
   Enabled: false
 Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: false
+Style/Documentation:
   Enabled: false
 Style/DocumentationMethod:
   Enabled: false

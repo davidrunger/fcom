@@ -1,3 +1,13 @@
+## Unreleased
+## Added
+- Add `--debug` option and only print the command(s) being executed if that option is used
+
+## Fixed
+- Added `activesupport` as a dependency of the `fcom` gem in the gemspec
+
+## Changed
+- Removed version locks for dependencies in gemspec
+
 ## 0.2.7 - 2020-06-05
 ### Maintenance
 - Added release script

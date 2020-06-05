@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module Fcom
+class Fcom
   VERSION = '0.2.7'
 end

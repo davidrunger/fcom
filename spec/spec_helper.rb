@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'pry'
-require 'slop'
-require 'fcom'
+Bundler.require(:test)
+require_relative '../lib/fcom.rb'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
