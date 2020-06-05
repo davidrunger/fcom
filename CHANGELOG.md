@@ -1,3 +1,7 @@
+## Unreleased
+### Changed
+- Specify dependency versions
+
 ## 0.2.8 - 2020-06-05
 ## Added
 - Add `--debug` option and only print the command(s) being executed if that option is used
