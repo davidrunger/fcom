@@ -4,6 +4,7 @@ require 'active_support/all'
 require 'colorize'
 require 'memoist'
 require 'slop'
+require 'yaml'
 
 # This `Fcom` class is the namespace within which most of the gem's code is written.
 # We need to define the class before requiring the modules.
@@ -25,9 +26,14 @@ class Fcom
       end
     end
 
+    memoize \
+    def config_file_options
+      Fcom::ConfigFileOptions.new
+    end
+
     def define_slop_options(options)
       git_helpers = Fcom::GitHelpers.new
-      default_repo = git_helpers.repo || 'username/repo'
+      default_repo = config_file_options.repo || git_helpers.repo || 'username/repo'
 
       options.string('--repo', 'GitHub repo (in form `username/repo`)', default: default_repo)
       options.integer('-d', '--days', 'number of days to search back')
