@@ -1,3 +1,8 @@
+## Unreleased
+### Docs
+- Update the illustrated `--help` output in `README.md` to reflect the `-i`/`--ignore-case` and
+  `--debug` options.
+
 ## 0.2.11 - 2020-06-05
 ### Tests
 - Added logging of how long each example takes to execute
