@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.10 - 2020-06-05
 ### Changed
 - Set `Fcom.logger.level` for both querier and parser
 
