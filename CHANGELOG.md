@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.6 - 2020-06-05
 ### Added
 - Allow searching case-insensitively via `-i`/`--ignore-case` option
 
