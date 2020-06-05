@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.13 - 2020-06-05
 ### Added
 - Add support for an `.fcom.yml` config file (supporting only a `repo` option at this time)
 
