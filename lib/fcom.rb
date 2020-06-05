@@ -23,6 +23,8 @@ class Fcom
     def logger
       Logger.new(STDOUT).tap do |logger|
         logger.formatter = ->(_severity, _datetime, _progname, msg) { "#{msg}\n" }
+        # default the log level to WARN, but this can be set to `DEBUG` via the `--debug` CLI option
+        logger.level = Logger::WARN
       end
     end
 

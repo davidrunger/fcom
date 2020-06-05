@@ -33,7 +33,7 @@ opts =
   end
 
 # Note: mutating the globally accessible `Fcom.logger` constant like this is not thread-safe
-Fcom.logger.level = opts.debug? ? Logger::DEBUG : Logger::WARN
+Fcom.logger.level = Logger::DEBUG if opts.debug?
 
 if opts.parse_mode?
   Fcom.warn_if_config_file_repo_option_missing
