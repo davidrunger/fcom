@@ -55,6 +55,21 @@ Examples:
     -h, --help         print this help information
 ```
 
+## `.fcom.yml` config file
+We highly recommend that you create a `.fcom.yml` file in any repository that you plan to search
+with `fcom`. (You might (or might not) want to add `.fcom.yml` to your `~/.gitignore_global` file so
+that this file is not tracked by `git`.)
+
+#### Example `.fcom.yml` config file
+```yaml
+repo: githubusername/reponame
+```
+
+The advantage of creating an `.fcom.yml` config file is that it will make the `fcom` command execute
+more quickly, because time will not be wasted parsing the output of `git remote ...` in order to
+determine the URL of the repo's remote repository (which is used to construct links to matching
+commits).
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run

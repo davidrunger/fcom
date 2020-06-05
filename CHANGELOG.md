@@ -1,3 +1,7 @@
+## Unreleased
+### Added
+- Add support for an `.fcom.yml` config file (supporting only a `repo` option at this time)
+
 ## 0.2.12 - 2020-06-05
 ### Docs
 - Update the illustrated `--help` output in `README.md` to reflect the `-i`/`--ignore-case` and
