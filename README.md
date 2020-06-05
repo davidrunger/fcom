@@ -45,12 +45,14 @@ Examples:
   fcom options --path spec/
   fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom
 
-    --repo         GitHub repo (in form `username/repo`)
-    -d, --days     number of days to search back
-    -r, --regex    interpret search string as a regular expression
-    -p, --path     path (directory or file) used to filter results
-    -v, --version  print the version
-    -h, --help     print this help information
+    --repo             GitHub repo (in form `username/repo`)
+    -d, --days         number of days to search back
+    -r, --regex        interpret search string as a regular expression
+    -i, --ignore-case  search case-insensitively
+    -p, --path         path (directory or file) used to filter results
+    --debug            print debugging info
+    -v, --version      print the version
+    -h, --help         print this help information
 ```
 
 ## Development
