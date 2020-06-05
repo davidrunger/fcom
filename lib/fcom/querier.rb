@@ -9,6 +9,8 @@ class Fcom::Querier
 
   def initialize(options)
     @options = options
+    # Note: mutating the globally accessible `Fcom.logger` constant like this is not thread-safe
+    Fcom.logger.level = debug? ? Logger::DEBUG : Logger::WARN
   end
 
   # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
@@ -38,7 +40,7 @@ class Fcom::Querier
         #{'--ignore-case' if ignore_case?}
         |
 
-      #{'exe/' if debug?}fcom #{quote}#{search_string}#{quote}
+      #{'exe/' if development?}fcom #{quote}#{search_string}#{quote}
         #{"--days #{days}" if days}
         #{'--regex' if regex_mode?}
         #{'--debug' if debug?}
@@ -48,7 +50,7 @@ class Fcom::Querier
         --repo #{repo}
     COMMAND
 
-    puts("Executing command: #{command}")
+    Fcom.logger.debug("Executing command: #{command}")
     system(command)
   end
   # rubocop:enable Metrics/PerceivedComplexity

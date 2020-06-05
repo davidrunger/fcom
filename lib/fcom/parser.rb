@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'colorize'
-require_relative './options_helpers.rb'
-
 # This class parses (and then reprints some of) STDIN according to the options passed to `fcom`.
 class Fcom::Parser
   include ::Fcom::OptionsHelpers
