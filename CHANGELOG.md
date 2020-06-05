@@ -1,3 +1,7 @@
+## Unreleased
+### Changed
+- Set `Fcom.logger.level` for both querier and parser
+
 ## 0.2.9 - 2020-06-05
 ### Changed
 - Specify dependency versions
