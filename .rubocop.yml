@@ -33,6 +33,8 @@ Style/GuardClause:
   Enabled: false
 Style/ImplicitRuntimeError:
   Enabled: false
+Style/InlineComment:
+  Enabled: false
 Style/MethodCallWithArgsParentheses:
   IgnoredMethods:
     - gem
