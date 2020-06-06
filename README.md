@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/davidrunger/fcom.svg?branch=master)](https://travis-ci.org/davidrunger/fcom)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=davidrunger/fcom)](https://dependabot.com)
+![GitHub tag (latest SemVer pre-release)](https://img.shields.io/github/v/tag/davidrunger/fcom?include_prereleases)
+
 # `fcom` ("find commit(s)")
 
 This is a CLI tool that I use to parse the git history of a repo.
