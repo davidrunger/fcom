@@ -1,4 +1,4 @@
-## Unreleased
+## 0.3.1 - 2020-06-06
 ### Docs
 - Add note to README.md about `--init` option
 
