@@ -35,11 +35,12 @@ class Fcom
 
     def warn_if_config_file_repo_option_missing
       if config_file_options.repo.blank?
-        puts(<<~WARNING.yellow)
+        puts(<<~WARNING.rstrip.yellow)
           Warning: you have not specified a `repo` option in an `.fcom.yml` file.
           This will cause `fcom` to execute more slowly than necessary.
-          See https://github.com/davidrunger/fcom/#readme for more info.
         WARNING
+        puts('Execute `fcom --init` to create an `.fcom.yml` file.'.blue.bold)
+        puts("See https://github.com/davidrunger/fcom/#readme for more info.\n\n")
       end
     end
 

@@ -1,3 +1,7 @@
+## Unreleased
+### Added
+- Add `--init` flag to automatically create an `.fcom.yml` file
+
 ## 0.2.19 - 2020-06-05
 ### Docs
 - Add badges to README.md (CI status, dependabot status, tag/version)
