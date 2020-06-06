@@ -1,4 +1,4 @@
-## Unreleased
+## 0.3.0 - 2020-06-06
 ### Added
 - Add `--init` flag to automatically create an `.fcom.yml` file
 
