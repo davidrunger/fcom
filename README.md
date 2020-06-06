@@ -55,6 +55,7 @@ Examples:
     -i, --ignore-case  search case-insensitively
     -p, --path         path (directory or file) used to filter results
     --debug            print debugging info
+    --init             create an `.fcom.yml` config file
     -v, --version      print the version
     -h, --help         print this help information
 ```

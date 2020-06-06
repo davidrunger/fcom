@@ -22,6 +22,11 @@ opts =
 
     Fcom.define_slop_options(o)
 
+    o.on('--init', 'create an `.fcom.yml` config file') do
+      File.write('.fcom.yml', "repo: #{Fcom::GitHelpers.new.repo}\n")
+      puts('Created `.fcom.yml` file!'.green.bold)
+      exit
+    end
     o.on('-v', '--version', 'print the version') do
       puts(Fcom::VERSION)
       exit
