@@ -61,9 +61,14 @@ Examples:
 ```
 
 ## `.fcom.yml` config file
-We highly recommend that you create a `.fcom.yml` file in any repository that you plan to search
-with `fcom`. (You might (or might not) want to add `.fcom.yml` to your `~/.gitignore_global` file so
-that this file is not tracked by `git`.)
+We highly recommend that you create an `.fcom.yml` file in any repository that you plan to search
+with `fcom`.
+
+**This file can be created automatically by executing `fcom --init`** in the relevant
+repo/directory.
+
+(You might (or might not) want to add `.fcom.yml` to your `~/.gitignore_global` file, so that this
+file is not tracked by `git`.)
 
 #### Example `.fcom.yml` config file
 ```yaml
@@ -71,7 +76,7 @@ repo: githubusername/reponame
 ```
 
 The advantage of creating an `.fcom.yml` config file is that it will make the `fcom` command execute
-more quickly, because time will not be wasted parsing the output of `git remote ...` in order to
+more quickly, because time will not be wasted parsing the output of `git remote [...]` in order to
 determine the URL of the repo's remote repository (which is used to construct links to matching
 commits).
 
