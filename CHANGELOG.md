@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.18 - 2020-06-05
 ### Tests
 - Stub `ConfigFileOptions#config_file_exists?` to return `false` in tests
 
