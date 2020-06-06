@@ -34,6 +34,11 @@ RSpec.configure do |config|
 
     # stub this method in all tests because otherwise it calls `git remote ...` which is really slow
     allow_any_instance_of(Fcom::GitHelpers).to receive(:repo).and_return('testuser/testrepo')
+
+    # pretend that `.fcom.yml` doesn't exist in tests
+    allow_any_instance_of(Fcom::ConfigFileOptions).
+      to receive(:config_file_exists?).
+      and_return(false)
   end
 
   config.after(:each) do |example|

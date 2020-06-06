@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class Fcom::ConfigFileOptions
+  extend Memoist
+
   def initialize
-    config_file_path = "#{ENV['PWD']}/.fcom.yml"
     @options =
-      if File.exist?(config_file_path)
+      if config_file_exists?
         YAML.load_file(config_file_path)
       else
         {}
@@ -13,5 +14,16 @@ class Fcom::ConfigFileOptions
 
   def repo
     @options['repo']
+  end
+
+  private
+
+  memoize \
+  def config_file_path
+    "#{ENV['PWD']}/.fcom.yml"
+  end
+
+  def config_file_exists?
+    File.exist?(config_file_path)
   end
 end
