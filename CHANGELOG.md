@@ -1,4 +1,4 @@
-## Unreleased
+## 0.3.2 - 2020-06-13
 ### Tests
 - Extract RSpec performance summary reporting to a gem
   ([rspec_performance_summary](https://github.com/davidrunger/rspec_performance_summary/))
