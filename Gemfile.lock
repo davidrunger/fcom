@@ -7,6 +7,12 @@ GIT
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
 
+GIT
+  remote: https://github.com/davidrunger/rspec_performance_summary
+  revision: e9786afb806a6385ad1a8cbef4c157ce42dea977
+  specs:
+    rspec_performance_summary (0.1.1)
+
 PATH
   remote: .
   specs:
@@ -117,6 +123,7 @@ DEPENDENCIES
   pry-byebug
   rake
   rspec
+  rspec_performance_summary!
   rubocop
 
 RUBY VERSION
