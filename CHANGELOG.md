@@ -1,3 +1,8 @@
+## Unreleased
+### Tests
+- Extract RSpec performance summary reporting to a gem
+  ([rspec_performance_summary](https://github.com/davidrunger/rspec_performance_summary/))
+
 ## 0.3.1 - 2020-06-06
 ### Docs
 - Add note to README.md about `--init` option
