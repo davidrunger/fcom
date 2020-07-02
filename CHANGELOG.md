@@ -1,3 +1,7 @@
+## Unreleased
+### Internal
+- Source Rubocop rules/config from `runger_style` gem
+
 ## 0.3.2 - 2020-06-13
 ### Tests
 - Extract RSpec performance summary reporting to a gem

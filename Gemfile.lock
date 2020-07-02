@@ -14,10 +14,16 @@ GIT
     rspec_performance_summary (0.1.4)
       rspec-core (~> 3.0)
 
+GIT
+  remote: https://github.com/davidrunger/runger_style
+  revision: 6aef7c7978c9b5306e518c18a067e2fdad2c8da1
+  specs:
+    runger_style (0.2.1)
+
 PATH
   remote: .
   specs:
-    fcom (0.3.2)
+    fcom (0.3.3.alpha)
       activesupport (~> 6.0)
       colorize (~> 0.8)
       memoist (~> 0.16)
@@ -103,6 +109,10 @@ GEM
       unicode-display_width (>= 1.4.0, < 2.0)
     rubocop-ast (0.0.3)
       parser (>= 2.7.0.1)
+    rubocop-performance (1.6.1)
+      rubocop (>= 0.71.0)
+    rubocop-rspec (1.40.0)
+      rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
     shellany (0.0.1)
     slop (4.8.1)
@@ -111,7 +121,7 @@ GEM
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
-    zeitwerk (2.3.0)
+    zeitwerk (2.3.1)
 
 PLATFORMS
   ruby
@@ -126,6 +136,9 @@ DEPENDENCIES
   rspec
   rspec_performance_summary!
   rubocop
+  rubocop-performance
+  rubocop-rspec
+  runger_style!
 
 RUBY VERSION
    ruby 2.7.1p83

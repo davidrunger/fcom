@@ -8,7 +8,8 @@ class Fcom::Parser
     @options = options
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/MethodLength
   def parse
     expression_to_match = search_string
     expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless regex_mode?
@@ -21,8 +22,6 @@ class Fcom::Parser
     previous_commit = nil
     a_commit_has_matched = false
     filename = nil
-
-    # rubocop:disable Metrics/BlockLength
     STDIN.each do |line|
       line.chomp!
       if (match = line.match(/^commit (.*)/)&.[](1))
@@ -63,15 +62,15 @@ class Fcom::Parser
         end
       end
     end
-    # rubocop:enable Metrics/BlockLength
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
   private
 
   def path_match?(filename)
     return true if path == Fcom::ROOT_PATH
 
-    filename.include?(path.sub(%r{\A\./}, ''))
+    filename.include?(path.delete_prefix('./'))
   end
 end

@@ -11,7 +11,7 @@ class Fcom::Querier
     @options = options
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/PerceivedComplexity
   def query
     expression_to_match = search_string
@@ -52,5 +52,5 @@ class Fcom::Querier
     system(command)
   end
   # rubocop:enable Metrics/PerceivedComplexity
-  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/CyclomaticComplexity
 end
