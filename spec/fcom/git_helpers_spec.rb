@@ -7,10 +7,13 @@ RSpec.describe Fcom::GitHelpers do
     subject(:repo) { git_helper.repo }
 
     context 'when Fcom::GitHelpers#repo is not stubbed' do
+      # rubocop:disable RSpec/AnyInstance
       before { allow_any_instance_of(Fcom::GitHelpers).to receive(:repo).and_call_original }
+      # rubocop:enable RSpec/AnyInstance
 
       context 'when `git remote ...` indicates that the remote is davidrunger/fcom' do
         before do
+          # rubocop:disable RSpec/AnyInstance
           expect_any_instance_of(Kernel).
             to receive(:`).
             with('git remote show origin').
@@ -28,6 +31,7 @@ RSpec.describe Fcom::GitHelpers do
                 Local ref configured for 'git push':
                   master pushes to master (up to date)
             GIT_REMOTE_OUTPUT
+          # rubocop:enable RSpec/AnyInstance
         end
 
         it 'returns a string in form "username/repo" representing the repo' do
