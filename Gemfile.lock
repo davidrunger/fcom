@@ -16,9 +16,9 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/runger_style
-  revision: 04c4a174d28e3c36a3aa81a9b2848b12d20b35a5
+  revision: 3d13e2985df67c4b9ce60c6039433ffa14ea87c9
   specs:
-    runger_style (0.2.1)
+    runger_style (0.2.3)
 
 PATH
   remote: .
@@ -98,7 +98,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.3)
-    rubocop (0.87.1)
+    rubocop (0.88.0)
       parallel (~> 1.10)
       parser (>= 2.7.1.1)
       rainbow (>= 2.2.2, < 4.0)
