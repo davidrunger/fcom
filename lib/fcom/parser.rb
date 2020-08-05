@@ -22,7 +22,7 @@ class Fcom::Parser
     previous_commit = nil
     a_commit_has_matched = false
     filename = nil
-    STDIN.each do |line|
+    $stdin.each do |line|
       line.chomp!
       if (match = line.match(/^commit (.*)/)&.[](1))
         previous_commit = match
