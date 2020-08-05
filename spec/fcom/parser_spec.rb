@@ -6,7 +6,7 @@ RSpec.describe Fcom::Parser do
   let(:options) { stubbed_slop_options('the_search_string --repo username/reponame') }
 
   before do
-    expect(STDIN).to receive(:each) do |_stdin, &blk|
+    expect($stdin).to receive(:each) do |_stdin, &blk|
       StringIO.new(stubbed_stdin).each(&blk)
     end
   end
@@ -25,18 +25,18 @@ RSpec.describe Fcom::Parser do
     end
 
     it 'prints stuff' do
-      expect(STDOUT).to receive(:puts).with([
+      expect($stdout).to receive(:puts).with([
         'Add rubocop as a development dependency',
         '066c52f ( https://github.com/username/reponame/commit/066c52f )',
         'David Runger',
         '3 days ago (2019-12-28 10:33:45 -0800)',
       ]).ordered
-      expect(STDOUT).to receive(:puts).
+      expect($stdout).to receive(:puts).
         with('==============================================').ordered
-      expect(STDOUT).to receive(:puts).with('lib/fcom/version.rb').ordered
-      expect(STDOUT).to receive(:puts).
+      expect($stdout).to receive(:puts).with('lib/fcom/version.rb').ordered
+      expect($stdout).to receive(:puts).
         with("\e[0;31;49m- this line matches the_search_string!\e[0m").ordered
-      expect(STDOUT).to receive(:puts).
+      expect($stdout).to receive(:puts).
         with("\e[0;32;49m+ this line also matches the_search_string!\e[0m").ordered
 
       parse
