@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/rspec_performance_summary
-  revision: 42638dcdf7ea8feacdf12580bb817b3bf8899135
+  revision: 0662ba8f62af599774493dab49bc543df90a7ab3
   specs:
     rspec_performance_summary (0.1.5)
       rspec-core (~> 3.0)
@@ -89,7 +89,7 @@ GEM
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
       rspec-mocks (~> 3.9.0)
-    rspec-core (3.9.2)
+    rspec-core (3.9.3)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -97,7 +97,7 @@ GEM
     rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-support (3.9.3)
+    rspec-support (3.9.4)
     rubocop (0.89.0)
       parallel (~> 1.10)
       parser (>= 2.7.1.1)
