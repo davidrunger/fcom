@@ -16,9 +16,9 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/runger_style
-  revision: 1817fcf6bcc80b1d5966ec7ca254b50ec2f96b1e
+  revision: d335a08711a4e1876e11c905becd8c57c0414b52
   specs:
-    runger_style (0.2.3)
+    runger_style (0.2.9)
 
 PATH
   remote: .
@@ -98,22 +98,23 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.1)
-    rubocop (0.89.0)
+    rubocop (1.8.0)
       parallel (~> 1.10)
-      parser (>= 2.7.1.1)
+      parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.7)
+      regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 0.1.0, < 1.0)
+      rubocop-ast (>= 1.2.0, < 2.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (0.8.0)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.4.0)
       parser (>= 2.7.1.5)
     rubocop-performance (1.8.1)
       rubocop (>= 0.87.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rspec (1.42.0)
-      rubocop (>= 0.87.0)
+    rubocop-rspec (2.1.0)
+      rubocop (~> 1.0)
+      rubocop-ast (>= 1.1.0)
     ruby-progressbar (1.11.0)
     shellany (0.0.1)
     slop (4.8.2)
@@ -121,7 +122,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    unicode-display_width (1.7.0)
+    unicode-display_width (2.0.0)
     zeitwerk (2.3.1)
 
 PLATFORMS
