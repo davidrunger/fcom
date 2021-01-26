@@ -9,9 +9,9 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/release_assistant
-  revision: 75eff623f621d359fa40bb80fe08dfb211d65e49
+  revision: e94daaf5b3e4447bb1de70568b110e5bec7fbc5d
   specs:
-    release_assistant (0.0.3)
+    release_assistant (0.1.1.alpha)
       activesupport (~> 6.0)
       colorize (~> 0.8)
       memoist (~> 0.16)
@@ -33,7 +33,7 @@ GIT
 PATH
   remote: .
   specs:
-    fcom (0.3.3)
+    fcom (0.3.4.alpha)
       activesupport (~> 6.0)
       colorize (~> 0.8)
       memoist (~> 0.16)
@@ -52,7 +52,7 @@ GEM
     byebug (11.1.3)
     coderay (1.1.3)
     colorize (0.8.1)
-    concurrent-ruby (1.1.7)
+    concurrent-ruby (1.1.8)
     diff-lcs (1.4.4)
     ffi (1.13.1)
     formatador (0.2.5)
