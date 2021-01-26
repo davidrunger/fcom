@@ -2,6 +2,8 @@
 ### Internal
 - Source Rubocop rules/config from `runger_style` gem
 - Use `release_assistant` to manage releases
+- Ensure in PR CI runs that the current version contains "alpha" & that there's no git diff (e.g.
+  due to failing to run `bundle` after updating the version)
 
 ## 0.3.2 - 2020-06-13
 ### Tests
