@@ -1,3 +1,7 @@
+## Unreleased
+### Dependencies
+- Bump `release_assistant` to `0.1.1.alpha`
+
 ## v0.3.3 (2021-01-26)
 ### Internal
 - Source Rubocop rules/config from `runger_style` gem
