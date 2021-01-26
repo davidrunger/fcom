@@ -1,4 +1,4 @@
-## Unreleased
+## v0.3.3 (2021-01-26)
 ### Internal
 - Source Rubocop rules/config from `runger_style` gem
 - Use `release_assistant` to manage releases
