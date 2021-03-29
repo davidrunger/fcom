@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/release_assistant
-  revision: bc33eb64e58caec559c038808fa5f0edcae4c327
+  revision: a37078e4bd8ae6b687df8741626cc4f300db7e15
   specs:
     release_assistant (0.3.3.alpha)
       activesupport (~> 6.0)
@@ -42,7 +42,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.3)
+    activesupport (6.1.3.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
