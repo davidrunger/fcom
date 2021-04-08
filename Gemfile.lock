@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/rspec_performance_summary
-  revision: 1bcf92d6c9fc34153ed26c7f6a12338c771dd6c8
+  revision: befa61fd30e7041bedecea8e46a693fe6590a58e
   specs:
     rspec_performance_summary (0.1.8.alpha)
       rspec-core (~> 3.0)
