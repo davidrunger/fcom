@@ -23,8 +23,7 @@ Gem::Specification.new do |spec|
     spec.metadata['source_code_uri'] = 'https://github.com/davidrunger/fcom'
     spec.metadata['changelog_uri'] = 'https://github.com/davidrunger/fcom/blob/master/CHANGELOG.md'
   else
-    raise('RubyGems 2.0 or newer is required to protect against ' \
-      'public gem pushes.')
+    raise('RubyGems 2.0 or newer is required to protect against public gem pushes.')
   end
 
   # Specify which files should be added to the gem when it is released.

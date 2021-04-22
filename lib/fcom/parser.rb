@@ -37,8 +37,7 @@ class Fcom::Parser
       elsif line.match?(regex) && (filename.blank? || path_match?(filename))
         if previous_commit
           title, sha, author, date = previous_commit.split('|')
-          sha_with_url =
-            "#{sha[0, 7]} ( https://github.com/#{repo}/commit/#{sha[0, 7]} )"
+          sha_with_url = "#{sha[0, 7]} ( https://github.com/#{repo}/commit/#{sha[0, 7]} )"
 
           puts("\n\n") if a_commit_has_matched # print commit separator, if needed
           puts([title, sha_with_url, author, date])
