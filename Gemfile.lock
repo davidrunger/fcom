@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/release_assistant
-  revision: c546272e86566b5eef54a72bf38c00c3179e791a
+  revision: c7719511422b64c7efe102eaffe6c80a738951fa
   specs:
     release_assistant (0.3.3.alpha)
       activesupport (~> 6.0)
@@ -127,7 +127,7 @@ GEM
       rubocop-ast (>= 1.1.0)
     ruby-progressbar (1.11.0)
     shellany (0.0.1)
-    slop (4.8.2)
+    slop (4.9.0)
     thor (1.0.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
