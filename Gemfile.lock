@@ -127,7 +127,7 @@ GEM
       rubocop-ast (>= 1.1.0)
     ruby-progressbar (1.11.0)
     shellany (0.0.1)
-    slop (4.9.0)
+    slop (4.9.1)
     thor (1.0.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
