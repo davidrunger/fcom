@@ -4,6 +4,7 @@ require 'bundler/setup'
 Bundler.require(:test)
 require_relative '../lib/fcom.rb'
 require 'rspec_performance_summary'
+Dir['spec/support/**/*.rb'].sort.each { |file| require("./#{file}") }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -15,6 +16,8 @@ RSpec.configure do |config|
   config.expect_with(:rspec) do |c|
     c.syntax = :expect
   end
+
+  config.include(Support::SlopHelpers)
 
   config.before(:suite) do
     # Some of the specs involve somewhat lengthy strings; increase the size of the printed output
@@ -36,10 +39,4 @@ RSpec.configure do |config|
       and_return(false)
     # rubocop:enable RSpec/AnyInstance
   end
-end
-
-def stubbed_slop_options(arguments_string)
-  options = Slop::Options.new
-  Fcom.define_slop_options(options)
-  options.parse(arguments_string.split(/\s+/))
 end
