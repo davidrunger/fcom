@@ -18,13 +18,6 @@ GIT
       slop (~> 4.8)
 
 GIT
-  remote: https://github.com/davidrunger/rspec_performance_summary
-  revision: fac5408235b77b9a0a3b33ae422a9d904bb28cbf
-  specs:
-    rspec_performance_summary (0.1.8.alpha)
-      rspec-core (~> 3.0)
-
-GIT
   remote: https://github.com/davidrunger/runger_style
   revision: 659404a8d0dc9de979d181f9c43e9fe83b8cc007
   specs:
@@ -54,7 +47,7 @@ GEM
     colorize (0.8.1)
     concurrent-ruby (1.1.9)
     diff-lcs (1.4.4)
-    ffi (1.13.1)
+    ffi (1.15.4)
     formatador (0.2.5)
     guard (2.16.2)
       formatador (>= 0.2.4)
@@ -68,7 +61,7 @@ GEM
     guard-compat (1.2.1)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    listen (3.2.1)
+    listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     lumberjack (1.2.5)
@@ -89,8 +82,8 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.13.0)
     rainbow (3.0.0)
-    rake (13.0.6)
-    rb-fsevent (0.10.4)
+    rake (13.0.3)
+    rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
@@ -146,14 +139,13 @@ DEPENDENCIES
   rake
   release_assistant!
   rspec
-  rspec_performance_summary!
   rubocop
   rubocop-performance
   rubocop-rspec
   runger_style!
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 3.0.2p107
 
 BUNDLED WITH
-   2.1.4
+   2.2.22

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby '2.7.2'
+ruby '3.0.2'
 
 source 'https://rubygems.org'
 
@@ -24,8 +24,4 @@ end
 
 group :development do
   gem 'release_assistant', require: false, github: 'davidrunger/release_assistant'
-end
-
-group :test do
-  gem 'rspec_performance_summary', require: false, github: 'davidrunger/rspec_performance_summary'
 end
