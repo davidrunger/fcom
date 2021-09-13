@@ -3,7 +3,6 @@
 require 'bundler/setup'
 Bundler.require(:test)
 require_relative '../lib/fcom.rb'
-require 'rspec_performance_summary'
 Dir['spec/support/**/*.rb'].sort.each { |file| require("./#{file}") }
 
 RSpec.configure do |config|
