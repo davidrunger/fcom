@@ -27,7 +27,7 @@ PATH
   remote: .
   specs:
     fcom (0.3.5.alpha)
-      activesupport (~> 6.0)
+      activesupport (>= 6, < 8)
       colorize (~> 0.8)
       memoist (~> 0.16)
       slop (~> 4.8)
