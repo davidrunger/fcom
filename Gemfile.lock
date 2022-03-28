@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/release_assistant
-  revision: d8b313c6e5226e57f4892dc8edfc9c433eb98133
+  revision: 5a39e421b3f5237403446d905336ece102ddca0b
   specs:
     release_assistant (0.3.3.alpha)
       activesupport (>= 6, < 8)
@@ -44,7 +44,7 @@ GEM
     byebug (11.1.3)
     coderay (1.1.3)
     colorize (0.8.1)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     diff-lcs (1.5.0)
     ffi (1.15.4)
     formatador (0.2.5)
@@ -118,7 +118,7 @@ GEM
       rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
     shellany (0.0.1)
-    slop (4.9.1)
+    slop (4.9.2)
     thor (1.0.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
