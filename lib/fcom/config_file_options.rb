@@ -20,7 +20,7 @@ class Fcom::ConfigFileOptions
 
   memoize \
   def config_file_path
-    "#{ENV['PWD']}/.fcom.yml"
+    "#{ENV.fetch('PWD')}/.fcom.yml"
   end
 
   def config_file_exists?
