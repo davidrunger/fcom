@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/release_assistant
-  revision: 79a5e5025de781bd0329d4717e76e632f0780fbf
+  revision: ac44928cbdf3ad3bf92e59c71ecae57cb72e437c
   specs:
     release_assistant (0.3.3.alpha)
       activesupport (>= 6, < 8)
@@ -67,7 +67,7 @@ GEM
     lumberjack (1.2.5)
     memoist (0.16.2)
     method_source (1.0.0)
-    minitest (5.16.1)
+    minitest (5.16.2)
     nenv (0.3.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
