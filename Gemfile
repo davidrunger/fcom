@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby '3.0.2'
+ruby '3.1.2'
 
 source 'https://rubygems.org'
 
@@ -11,7 +11,6 @@ gemspec
 
 group :development, :test do
   gem 'bundler', require: false
-  gem 'guard-espect', require: false, github: 'davidrunger/guard-espect'
   gem 'pry'
   gem 'pry-byebug'
   gem 'rake', require: false
