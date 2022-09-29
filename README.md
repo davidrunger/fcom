@@ -54,6 +54,7 @@ Examples:
     -r, --regex        interpret search string as a regular expression
     -i, --ignore-case  search case-insensitively
     -p, --path         path (directory or file) used to filter results
+    --rg-options       additional options passed directly to `rg` (e.g. `--rg-options "--max-columns 1000"`)
     --debug            print debugging info
     --init             create an `.fcom.yml` config file
     -v, --version      print the version
