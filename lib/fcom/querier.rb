@@ -36,6 +36,7 @@ class Fcom::Querier
       rg #{quote}(#{expression_to_match})|(^commit )|(^diff )#{quote}
         --color never
         #{'--ignore-case' if ignore_case?}
+        #{@options[:rg_options]}
         |
 
       #{'exe/' if development?}fcom #{quote}#{search_string}#{quote}

@@ -15,7 +15,7 @@ class Fcom::Parser
     expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless regex_mode?
     regex =
       Regexp.new(
-        "(\\+|-)\\s?.*#{expression_to_match}.*",
+        "((\\+|-)\\s?.*#{expression_to_match}.*|Omitted long (matching )?line)",
         ignore_case? ? Regexp::IGNORECASE : nil,
       )
 
