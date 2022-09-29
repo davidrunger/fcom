@@ -17,7 +17,7 @@ GIT
 PATH
   remote: .
   specs:
-    fcom (0.3.5.alpha)
+    fcom (0.4.0)
       activesupport (>= 6, < 8)
       colorize (~> 0.8)
       memoist (~> 0.16)
