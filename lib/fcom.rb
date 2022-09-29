@@ -65,6 +65,11 @@ class Fcom
         'path (directory or file) used to filter results',
         default: Fcom::ROOT_PATH,
       )
+      options.string(
+        '--rg-options',
+        'additional options passed directly to `rg` (e.g. `--rg-options "--max-columns 1000"`)',
+        default: '',
+      )
       options.bool('--debug', 'print debugging info', default: false)
       options.bool('--parse-mode', 'whether we are in parse mode', default: false, help: false)
       options.bool('--development', 'use local `fcom` executable', default: false, help: false)
