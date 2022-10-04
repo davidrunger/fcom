@@ -3,7 +3,7 @@
 require 'bundler/setup'
 Bundler.require(:test)
 require_relative '../lib/fcom.rb'
-Dir['spec/support/**/*.rb'].sort.each { |file| require("./#{file}") }
+Dir['spec/support/**/*.rb'].each { |file| require("./#{file}") }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
