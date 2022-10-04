@@ -42,7 +42,9 @@ Fcom.logger.level = Logger::DEBUG if opts.debug?
 
 if opts.parse_mode?
   Fcom::Parser.new(opts).parse
-else
+elsif !opts.arguments.empty?
   Fcom.warn_if_config_file_repo_option_missing
   Fcom::Querier.new(opts).query
+else
+  puts(opts.options.to_s)
 end
