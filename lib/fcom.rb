@@ -13,7 +13,7 @@ class Fcom
 end
 # rubocop:enable Lint/EmptyClass
 
-Dir["#{File.dirname(__FILE__)}/fcom/*.rb"].sort.each { |file| require file }
+Dir["#{File.dirname(__FILE__)}/fcom/*.rb"].each { |file| require file }
 
 class Fcom
   ROOT_PATH = '.'
