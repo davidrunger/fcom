@@ -28,6 +28,7 @@ class Fcom::Querier
       git log
         #{"--since=#{days}.day" unless days.nil?}
         --full-diff
+        --no-textconv
         --format="commit %s|%H|%an|%cr (%ci)"
         --source
         -p #{path}
