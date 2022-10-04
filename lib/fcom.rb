@@ -50,7 +50,7 @@ class Fcom
       git_helpers = Fcom::GitHelpers.new
       default_repo = config_file_options.repo || git_helpers.repo || 'username/repo'
 
-      options.string('--repo', 'GitHub repo (in form `username/repo`)', default: default_repo)
+      options.string('--repo', 'GITHUB repo (in form `username/repo`)', default: default_repo)
       options.integer('-d', '--days', 'number of days to search back')
       options.bool(
         '-r',
