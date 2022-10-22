@@ -18,6 +18,8 @@ RSpec.configure do |config|
 
   config.include(Support::SlopHelpers)
 
+  config.filter_run_when_matching(:focus)
+
   config.before(:suite) do
     # Some of the specs involve somewhat lengthy strings; increase the size of the printed output
     # for easier comparison of expected vs actual strings, in the event of a failure.
