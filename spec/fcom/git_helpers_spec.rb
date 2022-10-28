@@ -46,6 +46,19 @@ RSpec.describe Fcom::GitHelpers do
             expect(repo).to eq('rdy/fixture_builder')
           end
         end
+
+        context 'when `git remote -v` lists an origin with a trailing slash' do
+          let(:git_remote_output) do
+            <<~GIT_REMOTE_OUTPUT
+              origin  https://github.com/rdy/fixture_builder/ (fetch)
+              origin  https://github.com/rdy/fixture_builder/ (push)
+            GIT_REMOTE_OUTPUT
+          end
+
+          it 'returns a string in form "username/repo" representing the repo' do
+            expect(repo).to eq('rdy/fixture_builder')
+          end
+        end
       end
     end
   end
