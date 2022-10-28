@@ -7,7 +7,7 @@ class Fcom::GitHelpers
     # git@github.com:davidrunger/fcom.git
     # https://github.com/davidrunger/fcom.git
     # https://github.com/davidrunger/fcom
-    origin_fetch_url.match(%r{github\.com[:/](((?!\.git).)*)})[1]
+    origin_fetch_url.delete_suffix('/').match(%r{github\.com[:/](((?!\.git).)*)})[1]
   end
 
   private
