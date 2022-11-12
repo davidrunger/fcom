@@ -24,7 +24,9 @@ gem specific_install davidrunger/fcom
 
 ## Dependencies
 
-This gem assumes that you have `git` and `rg` (ripgrep) installed.
+This gem assumes that you have `git` and [`rg` (ripgrep)][ripgrep] installed.
+
+[ripgrep]: https://github.com/BurntSushi/ripgrep
 
 ## Basic usage
 
