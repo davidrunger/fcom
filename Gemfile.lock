@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/runger_style
-  revision: 875d73c09463a4878c0340795b8c7511cd5b9c7a
+  revision: 5c64e1787d8815c4b294382164c0d9b794d05768
   specs:
     runger_style (0.2.22.alpha)
       rubocop (>= 1.38.0, < 2)
@@ -80,7 +80,7 @@ GEM
       rubocop-ast (>= 1.23.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.23.0)
+    rubocop-ast (1.24.0)
       parser (>= 3.1.1.0)
     rubocop-performance (1.15.1)
       rubocop (>= 1.7.0, < 2.0)
