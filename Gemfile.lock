@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/runger_style
-  revision: 5c64e1787d8815c4b294382164c0d9b794d05768
+  revision: 08cb142c9d9cd4f69d57a0770ef2bfcf505b38d7
   specs:
     runger_style (0.2.22.alpha)
       rubocop (>= 1.38.0, < 2)
@@ -40,7 +40,7 @@ GEM
     diff-lcs (1.5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    json (2.6.2)
+    json (2.6.3)
     memoist (0.16.2)
     method_source (1.0.0)
     minitest (5.16.3)
