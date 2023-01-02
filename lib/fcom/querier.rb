@@ -17,7 +17,7 @@ class Fcom::Querier
     expression_to_match = search_string
     expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless regex_mode?
 
-    if expression_to_match.nil? || expression_to_match.size.zero?
+    if expression_to_match.nil? || expression_to_match.empty?
       puts('provide expression to match as first argument')
       exit
     end
