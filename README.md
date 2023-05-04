@@ -13,13 +13,8 @@ davidrunger/fcom`, I get this output:
 
 ## Installation
 
-The easiest way to install `fcom` is via the
-[`specific_install`](https://github.com/rdp/specific_install) gem, which will pull and build the
-`fcom` gem directly from the `master` branch of this repo:
-
 ```
-gem install specific_install
-gem specific_install davidrunger/fcom
+gem install fcom
 ```
 
 ## Dependencies
