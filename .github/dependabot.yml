@@ -6,8 +6,3 @@ updates:
     interval: weekly
     time: "03:52"
     timezone: America/Chicago
-  open-pull-requests-limit: 20
-  ignore:
-  - dependency-name: activesupport
-    versions:
-    - 6.1.3.1
