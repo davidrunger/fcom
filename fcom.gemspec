@@ -40,5 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency('memoist', '~> 0.16')
   spec.add_dependency('slop', '~> 4.8')
 
-  spec.required_ruby_version = '>= 3.1'
+  spec.required_ruby_version = '>= 3.2'
 end
