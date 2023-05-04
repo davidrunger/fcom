@@ -66,6 +66,11 @@ class Fcom
         default: Fcom::ROOT_PATH,
       )
       options.string(
+        '-a',
+        '--author',
+        'author',
+      )
+      options.string(
         '--rg-options',
         'additional options passed directly to `rg` (e.g. `--rg-options "--max-columns 1000"`)',
         default: '',

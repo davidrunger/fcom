@@ -26,6 +26,7 @@ class Fcom::Querier
 
     command = <<~COMMAND.squish
       git log
+        #{%(--author="#{author}") if author}
         #{"--since=#{days}.day" unless days.nil?}
         --full-diff
         --no-textconv

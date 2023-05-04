@@ -4,6 +4,10 @@
 module Fcom::OptionsHelpers
   private
 
+  def author
+    @options[:author]
+  end
+
   def days
     @options[:days]
   end

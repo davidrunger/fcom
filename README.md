@@ -49,13 +49,14 @@ Examples:
   fcom "def update" --days 60
   fcom "[Uu]ser.*slug" -d 365 --regex
   fcom options --path spec/
-  fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom
+  fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom -a "David Runger"
 
     --repo             GitHub repo (in form `username/repo`)
     -d, --days         number of days to search back
     -r, --regex        interpret search string as a regular expression
     -i, --ignore-case  search case-insensitively
     -p, --path         path (directory or file) used to filter results
+    -a, --author       author
     --rg-options       additional options passed directly to `rg` (e.g. `--rg-options "--max-columns 1000"`)
     --debug            print debugging info
     --init             create an `.fcom.yml` config file
