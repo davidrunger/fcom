@@ -6,6 +6,9 @@ module Support::SlopHelpers
   def stubbed_slop_options(arguments_string)
     options = Slop::Options.new
     Fcom.define_slop_options(options)
-    options.parse(arguments_string.split(/\s+/))
+
+    arguments_array = []
+    arguments_string.scan(/("[^"]+"|\S+)/) { |match| arguments_array << match[0].delete('"') }
+    options.parse(arguments_array)
   end
 end
