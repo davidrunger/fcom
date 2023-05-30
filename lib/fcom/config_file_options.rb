@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Fcom::ConfigFileOptions
-  extend Memoist
+  prepend MemoWise
 
   def initialize
     @options =
@@ -18,7 +18,7 @@ class Fcom::ConfigFileOptions
 
   private
 
-  memoize \
+  memo_wise \
   def config_file_path
     "#{ENV.fetch('PWD')}/.fcom.yml"
   end

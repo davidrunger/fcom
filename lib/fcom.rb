@@ -2,7 +2,7 @@
 
 require 'active_support/all'
 require 'colorize'
-require 'memoist'
+require 'memo_wise'
 require 'slop'
 require 'yaml'
 
@@ -19,9 +19,9 @@ class Fcom
   ROOT_PATH = '.'
 
   class << self
-    extend Memoist
+    prepend MemoWise
 
-    memoize \
+    memo_wise \
     def logger
       Logger.new($stdout).tap do |logger|
         logger.formatter = ->(_severity, _datetime, _progname, msg) { "#{msg}\n" }
@@ -30,7 +30,7 @@ class Fcom
       end
     end
 
-    memoize \
+    memo_wise \
     def config_file_options
       Fcom::ConfigFileOptions.new
     end
