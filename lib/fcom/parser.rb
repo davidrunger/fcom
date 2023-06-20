@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+using Rainbow
+
 # This class parses (and then reprints some of) STDIN according to the options passed to `fcom`.
 class Fcom::Parser
   include ::Fcom::OptionsHelpers
