@@ -1,4 +1,4 @@
-## Unreleased
+## v0.5.0 (2023-06-20)
 - Switch from `colorize` to `rainbow` for colored terminal output
 
 ## v0.4.3 (2023-05-30)
