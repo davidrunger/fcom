@@ -35,9 +35,9 @@ RSpec.describe Fcom::Parser do
         with('==============================================').ordered
       expect($stdout).to receive(:puts).with('lib/fcom/version.rb').ordered
       expect($stdout).to receive(:puts).
-        with("\e[0;31;49m- this line matches the_search_string!\e[0m").ordered
+        with("\e[31m- this line matches the_search_string!\e[0m").ordered
       expect($stdout).to receive(:puts).
-        with("\e[0;32;49m+ this line also matches the_search_string!\e[0m").ordered
+        with("\e[32m+ this line also matches the_search_string!\e[0m").ordered
 
       parse
     end

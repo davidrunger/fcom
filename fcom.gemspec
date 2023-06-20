@@ -33,8 +33,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency('activesupport', '>= 6', '< 8')
-  spec.add_dependency('colorize', '~> 0.8')
   spec.add_dependency('memo_wise', '>= 1.7', '< 2')
+  spec.add_dependency('rainbow', '>= 3.0', '< 4')
   spec.add_dependency('slop', '~> 4.8')
 
   spec.required_ruby_version = '>= 3.2'

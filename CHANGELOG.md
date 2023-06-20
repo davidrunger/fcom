@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Switch from `colorize` to `rainbow` for colored terminal output
 
 ## v0.4.3 (2023-05-30)
 ### Changed

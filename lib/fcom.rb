@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 require 'active_support/all'
-require 'colorize'
 require 'memo_wise'
+require 'rainbow/refinement'
 require 'slop'
 require 'yaml'
+
+using Rainbow
 
 # This `Fcom` class is the namespace within which most of the gem's code is written.
 # We need to define the class before requiring the modules.
