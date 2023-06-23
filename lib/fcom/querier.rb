@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative './options_helpers.rb'
+require_relative 'options_helpers.rb'
 
 # This class executes a system command to retrieve the git history, which is passed through `rg`
 # (ripgrep), and then ultimately is fed back to `fcom` for parsing.
