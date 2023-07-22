@@ -2,8 +2,11 @@
 
 # frozen_string_literal: true
 
+require 'rainbow/refinement'
 require 'slop'
 require_relative '../lib/fcom.rb'
+
+using Rainbow
 
 opts =
   Slop.parse do |o|
