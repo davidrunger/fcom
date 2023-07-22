@@ -2,6 +2,9 @@
 ### Fixed
 - Require and use Rainbow refinement in exe/fcom
 
+### Internal
+- Update `release` binstub for `runger_release_assistant` gem
+
 ## v0.5.0 (2023-06-20)
 - Switch from `colorize` to `rainbow` for colored terminal output
 
