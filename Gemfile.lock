@@ -34,7 +34,7 @@ GEM
       concurrent-ruby (~> 1.0)
     json (2.6.3)
     language_server-protocol (3.17.0.3)
-    memo_wise (1.7.0)
+    memo_wise (1.8.0)
     method_source (1.0.0)
     minitest (5.20.0)
     mutex_m (0.1.2)
