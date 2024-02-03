@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v0.6.0 (2024-02-02)
 - Source Ruby version from `.ruby-version` file
 
