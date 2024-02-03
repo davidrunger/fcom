@@ -37,5 +37,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency('rainbow', '>= 3.0', '< 4')
   spec.add_dependency('slop', '~> 4.8')
 
-  spec.required_ruby_version = '>= 3.2'
+  spec.required_ruby_version = Gem::Requirement.new(">= #{File.read('.ruby-version').rstrip}")
 end
