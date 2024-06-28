@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Print a helpful error message if ripgrep is not installed
 
 ## v0.7.1 (2024-06-28)
 - Don't error if path option is a deleted file
