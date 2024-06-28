@@ -2,6 +2,6 @@
 
 # rubocop:disable Style/StaticClass
 class Fcom
-  VERSION = '0.8.0'
+  VERSION = '0.8.1.alpha'
 end
 # rubocop:enable Style/StaticClass

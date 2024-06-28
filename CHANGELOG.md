@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v0.8.0 (2024-06-28)
 - Print a helpful error message if ripgrep is not installed
 
