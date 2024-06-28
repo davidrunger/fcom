@@ -1,5 +1,6 @@
 ## Unreleased
-[no unreleased changes yet]
+- Enforce only major and minor parts of required Ruby version (loosening the
+  required Ruby version from 3.3.3 to 3.3.0)
 
 ## v0.9.0 (2024-06-28)
 - Print first 8 characters of commit SHA (not 7)
