@@ -43,7 +43,12 @@ opts =
 # Note: mutating the globally accessible `Fcom.logger` constant like this is not thread-safe
 Fcom.logger.level = Logger::DEBUG if opts.debug?
 
-if opts.parse_mode?
+if !system('which rg > /dev/null')
+  puts("fcom requires that `rg` (ripgrep) be available on your PATH, but it's not.".red)
+  puts('If you are using Homebrew, you can install ripgrep with `brew install ripgrep`.'.blue)
+
+  exit(1)
+elsif opts.parse_mode?
   Fcom::Parser.new(opts).parse
 elsif !opts.arguments.empty?
   Fcom.warn_if_config_file_repo_option_missing
