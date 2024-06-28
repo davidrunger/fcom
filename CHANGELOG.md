@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Don't error if path option is a deleted file
 
 ## v0.7.0 (2024-06-15)
 - Change primary branch name from `master` to `main`
