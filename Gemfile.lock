@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fcom (0.9.1.alpha)
+    fcom (0.10.0)
       activesupport (>= 6, < 8)
       memo_wise (>= 1.7, < 2)
       rainbow (>= 3.0, < 4)
