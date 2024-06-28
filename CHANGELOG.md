@@ -1,4 +1,4 @@
-## Unreleased
+## v0.9.0 (2024-06-28)
 - Print first 8 characters of commit SHA (not 7)
 
 ## v0.8.0 (2024-06-28)
