@@ -26,13 +26,14 @@ class Fcom::Querier
 
     command = <<~COMMAND.squish
       git log
-        #{%(--author="#{author}") if author}
-        #{"--since=#{days}.day" unless days.nil?}
+        --format="commit %s|%H|%an|%cr (%ci)"
+        --patch
         --full-diff
         --no-textconv
-        --format="commit %s|%H|%an|%cr (%ci)"
-        --source
-        -p #{path}
+        #{%(--author="#{author}") if author}
+        #{"--since=#{days}.day" unless days.nil?}
+        --
+        #{path}
         |
 
       rg #{quote}(#{expression_to_match})|(^commit )|(^diff )#{quote}
