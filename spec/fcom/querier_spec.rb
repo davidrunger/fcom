@@ -13,7 +13,7 @@ RSpec.describe Fcom::Querier do
       expect_any_instance_of(Kernel).
         to receive(:system).
         with(<<~COMMAND.squish)
-          git log --full-diff --no-textconv --format="commit %s|%H|%an|%cr (%ci)" --source -p . |
+          git log --format="commit %s|%H|%an|%cr (%ci)" --patch --full-diff --no-textconv -- . |
           rg "(the_search_string)|(^commit )|(^diff )" --color never |
           fcom "the_search_string" --path . --parse-mode --repo testuser/testrepo
         COMMAND
@@ -31,11 +31,11 @@ RSpec.describe Fcom::Querier do
           to receive(:system).
           with(<<~COMMAND.squish)
             git log
-              --author="David Runger"
-              --full-diff
-              --no-textconv
-              --format="commit %s|%H|%an|%cr (%ci)"
-              --source -p . |
+            --format="commit %s|%H|%an|%cr (%ci)"
+            --patch --full-diff --no-textconv
+            --author="David Runger"
+            -- .
+            |
             rg "(the_search_string)|(^commit )|(^diff )" --color never |
             fcom "the_search_string" --path . --parse-mode --repo testuser/testrepo
           COMMAND
