@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Print first 8 characters of commit SHA (not 7)
 
 ## v0.8.0 (2024-06-28)
 - Print a helpful error message if ripgrep is not installed

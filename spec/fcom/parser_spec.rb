@@ -27,7 +27,7 @@ RSpec.describe Fcom::Parser do
     it 'prints stuff' do
       expect($stdout).to receive(:puts).with([
         'Add rubocop as a development dependency',
-        '066c52f ( https://github.com/username/reponame/commit/066c52f )',
+        '066c52f4 ( https://github.com/username/reponame/commit/066c52f4 )',
         'David Runger',
         '3 days ago (2019-12-28 10:33:45 -0800)',
       ]).ordered
