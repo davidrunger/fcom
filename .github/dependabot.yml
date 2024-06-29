@@ -1,8 +1,8 @@
 version: 2
 updates:
-- package-ecosystem: bundler
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "04:04"
-    timezone: America/Chicago
+  - package-ecosystem: bundler
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "04:04"
+      timezone: America/Chicago
