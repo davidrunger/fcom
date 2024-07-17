@@ -1,4 +1,4 @@
-## Unreleased
+## v0.11.0 (2024-07-16)
 - Search back through renames
 
 ## v0.10.0 (2024-06-28)
