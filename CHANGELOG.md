@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Search back through renames
 
 ## v0.10.0 (2024-06-28)
 - Enforce only major and minor parts of required Ruby version (loosening the
