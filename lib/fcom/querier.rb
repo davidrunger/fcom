@@ -14,6 +14,7 @@ class Fcom::Querier
 
   # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/MethodLength
   def query
     expression_to_match = search_string
     expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless regex_mode?
@@ -76,6 +77,7 @@ class Fcom::Querier
       end
     end
   end
+  # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/PerceivedComplexity
   # rubocop:enable Metrics/CyclomaticComplexity
 
