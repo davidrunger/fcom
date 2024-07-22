@@ -75,7 +75,7 @@ class Fcom
       options.string(
         '--rg-options',
         'additional options passed directly to `rg` (e.g. `--rg-options "--max-columns 1000"`)',
-        default: '',
+        default: '--max-columns=2000',
       )
       options.bool('--debug', 'print debugging info', default: false)
       options.bool('--parse-mode', 'whether we are in parse mode', default: false, help: false)
