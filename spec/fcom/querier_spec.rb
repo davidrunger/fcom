@@ -30,7 +30,7 @@ RSpec.describe Fcom::Querier do
             with(<<~COMMAND.squish).
               git log --format="commit %s|%H|%an|%cr (%ci)" --patch --full-diff --no-textconv
                 HEAD -- . |
-              rg "(the_search_string)|(^commit )|(^diff )" --color never |
+              rg "(the_search_string)|(^commit )|(^diff )" --color never --max-columns=2000 |
               fcom "the_search_string" --path . --parse-mode --repo testuser/testrepo
             COMMAND
             and_return('')
@@ -52,7 +52,7 @@ RSpec.describe Fcom::Querier do
                 HEAD
                 -- .
                 |
-                rg "(the_search_string)|(^commit )|(^diff )" --color never |
+                rg "(the_search_string)|(^commit )|(^diff )" --color never --max-columns=2000 |
                 fcom "the_search_string" --path . --parse-mode --repo testuser/testrepo
               COMMAND
               and_return('')
