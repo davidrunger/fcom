@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v0.12.0 (2024-07-21)
 - Default `--rg-options` to `--max-columns=2000`
 
