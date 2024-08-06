@@ -1,5 +1,6 @@
 ## Unreleased
-[no unreleased changes yet]
+- **Performance fix:** only search over renames when a path is given.
+- **Performance fix:** only follow renames as far back as the `--days` option (if provided).
 
 ## v0.12.0 (2024-07-21)
 - Default `--rg-options` to `--max-columns=2000`
