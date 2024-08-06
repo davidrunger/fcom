@@ -1,4 +1,4 @@
-## Unreleased
+## v0.12.1 (2024-08-05)
 - **Performance fix:** only search over renames when a path is given.
 - **Performance fix:** only follow renames as far back as the `--days` option (if provided).
 
