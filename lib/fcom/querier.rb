@@ -35,7 +35,7 @@ class Fcom::Querier
             --full-diff
             --no-textconv
             #{%(--author="#{author}") if author}
-            #{"--since=#{days}.day" unless days.nil?}
+            #{days_limiter}
             #{commit}
             --
             #{path_at_commit}
@@ -101,13 +101,29 @@ class Fcom::Querier
 
   memo_wise \
   def renames
-    `git log HEAD --format=%H --name-status --follow --diff-filter=R -- '#{path}'`.
-      split(/\n(?=[0-9a-f]{40})/).
-      to_h do |sha_and_name_info|
-        sha_and_name_info.
-          match(/(?<sha>[0-9a-f]{40})\n\nR\d+\s+(?<previous_name>\S+)?/).
-          named_captures.
-          values_at('sha', 'previous_name')
-      end
+    if path == Fcom::ROOT_PATH
+      {}
+    else
+      command =
+        'git log HEAD ' \
+        "--format=%H --name-status --follow --diff-filter=R #{days_limiter} " \
+        "-- '#{path}'"
+
+      `#{command}`.
+        split(/\n(?=[0-9a-f]{40})/).
+        to_h do |sha_and_name_info|
+          sha_and_name_info.
+            match(/(?<sha>[0-9a-f]{40})\n\nR\d+\s+(?<previous_name>\S+)?/).
+            named_captures.
+            values_at('sha', 'previous_name')
+        end
+    end
+  end
+
+  memo_wise \
+  def days_limiter
+    if days
+      "--since=#{days}.day"
+    end
   end
 end

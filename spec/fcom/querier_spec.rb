@@ -16,26 +16,9 @@ RSpec.describe Fcom::Querier do
           and_return(true)
       end
 
-      context 'when there have been no file renames' do
+      context 'when a path option is not provided' do
         before do
-          expect(querier).
-            to receive(:`).
-            with("git log HEAD --format=%H --name-status --follow --diff-filter=R -- '.'").
-            and_return('')
-        end
-
-        it 'executes a backticks system call with the expected command' do
-          expect(querier).
-            to receive(:`).
-            with(<<~COMMAND.squish).
-              git log --format="commit %s|%H|%an|%cr (%ci)" --patch --full-diff --no-textconv
-                HEAD -- . |
-              rg "(the_search_string)|(^commit )|(^diff )" --color never --max-columns=2000 |
-              fcom "the_search_string" --path . --parse-mode --repo testuser/testrepo
-            COMMAND
-            and_return('')
-
-          query
+          expect(options[:path]).to eq(Fcom::ROOT_PATH)
         end
 
         context 'when an author option is provided' do
@@ -47,7 +30,9 @@ RSpec.describe Fcom::Querier do
               with(<<~COMMAND.squish).
                 git log
                 --format="commit %s|%H|%an|%cr (%ci)"
-                --patch --full-diff --no-textconv
+                --patch
+                --full-diff
+                --no-textconv
                 --author="David Runger"
                 HEAD
                 -- .
