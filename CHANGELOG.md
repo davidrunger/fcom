@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v0.13.0 (2024-09-08)
 - Add `--topo-order` (topological order) option to `git log` command
 
