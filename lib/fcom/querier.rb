@@ -33,6 +33,7 @@ class Fcom::Querier
             --format="commit %s|%H|%an|%cr (%ci)"
             --patch
             --full-diff
+            --topo-order
             --no-textconv
             #{%(--author="#{author}") if author}
             #{days_limiter}

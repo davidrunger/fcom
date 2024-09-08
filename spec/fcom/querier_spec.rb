@@ -32,6 +32,7 @@ RSpec.describe Fcom::Querier do
                 --format="commit %s|%H|%an|%cr (%ci)"
                 --patch
                 --full-diff
+                --topo-order
                 --no-textconv
                 --author="David Runger"
                 HEAD
