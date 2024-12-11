@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     fcom (0.13.1.alpha)
-      activesupport (>= 6, < 8)
-      memo_wise (>= 1.7, < 2)
-      rainbow (>= 3.0, < 4)
+      activesupport (>= 6)
+      memo_wise (>= 1.7)
+      rainbow (>= 3.0)
       slop (~> 4.8)
 
 GEM
