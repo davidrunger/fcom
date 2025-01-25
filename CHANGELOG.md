@@ -1,4 +1,4 @@
-## Unreleased
+## v0.14.1 (2025-01-24)
 - Stream results progressively. ([#757](https://github.com/davidrunger/fcom/pull/757))
 
 ## v0.14.0 (2024-12-10)
