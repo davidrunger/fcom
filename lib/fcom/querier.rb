@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'pty'
+
 require_relative 'options_helpers.rb'
 
 # This class executes a system command to retrieve the git history, which is passed through `rg`
@@ -63,18 +65,34 @@ class Fcom::Querier
 
     commands.each do |command|
       Fcom.logger.debug("Executing command: #{command}")
-      output = `#{command}`
 
-      if output.empty?
-        previous_command_generated_output = false
-      else
-        if previous_command_generated_output
-          puts("\n\n") # print blank lines for spacing
+      # Add spacing if needed
+      if previous_command_generated_output
+        print "\n\n"
+      end
+
+      PTY.spawn(command) do |stdout, _stdin, _pid|
+        any_bytes_seen_for_command = false
+
+        # Read first byte to detect any output
+        first_byte = stdout.read(1)
+
+        any_bytes_seen_for_command = true
+
+        if first_byte
+          previous_command_generated_output = true
+
+          print(first_byte)
+
+          # Now read the rest line by line
+          stdout.each_line { puts(it) }
+        else
+          previous_command_generated_output = false
         end
-
-        previous_command_generated_output = true
-
-        puts(output)
+      rescue Errno::EIO
+        if !any_bytes_seen_for_command
+          previous_command_generated_output = false
+        end
       end
     end
   end
