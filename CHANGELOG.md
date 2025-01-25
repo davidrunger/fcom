@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Stream results progressively. ([#757](https://github.com/davidrunger/fcom/pull/757))
 
 ## v0.14.0 (2024-12-10)
 - Remove upper bounds on versions for all dependencies.

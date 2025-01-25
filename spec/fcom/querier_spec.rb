@@ -24,10 +24,10 @@ RSpec.describe Fcom::Querier do
         context 'when an author option is provided' do
           let(:options) { stubbed_slop_options('the_search_string --author "David Runger"') }
 
-          it 'executes a backticks system call with the expected command' do
-            expect(querier).
-              to receive(:`).
-              with(<<~COMMAND.squish).
+          it 'spawns a pseudoterminal with the expected command' do
+            expect(PTY).
+              to receive(:spawn).
+              with(<<~COMMAND.squish)
                 git log
                 --format="commit %s|%H|%an|%cr (%ci)"
                 --patch
@@ -41,7 +41,6 @@ RSpec.describe Fcom::Querier do
                 rg "(the_search_string)|(^commit )|(^diff )" --color never --max-columns=2000 |
                 fcom "the_search_string" --path . --parse-mode --repo testuser/testrepo
               COMMAND
-              and_return('')
 
             query
           end
