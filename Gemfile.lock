@@ -94,7 +94,7 @@ GEM
       memo_wise (>= 1.7)
       rainbow (>= 3.0)
       slop (~> 4.8)
-    runger_style (4.1.0)
+    runger_style (4.2.1)
       prism (>= 0.24.0)
       rubocop (>= 1.68.0)
     securerandom (0.4.1)
@@ -164,7 +164,7 @@ CHECKSUMS
   rubocop-rspec (3.4.0) sha256=8721c13b6a8c9530a7ac481cea9423022f946fcf72428bda8289f8b57e4d4885
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   runger_release_assistant (0.14.0) sha256=7abc5eb1e0f63d8d611691bc21698d2b3b8f148a5f47cacd8dd32c21d16ee9be
-  runger_style (4.1.0) sha256=0740ed8c194fc6dcb420b11b1fb13cebf244e8e34c1c1df05200dc0e15ce084e
+  runger_style (4.2.1) sha256=6f8c782ad053636d44dedf6aada57bd7ab146b4f61b34fc832895a6dc47d5750
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   slop (4.10.1) sha256=844322b5ffcf17ed4815fdb173b04a20dd82b4fd93e3744c88c8fafea696d9c7
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
