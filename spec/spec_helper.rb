@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-Bundler.require(:test)
-require_relative '../lib/fcom.rb'
+Bundler.require(:default, :test)
 Dir['spec/support/**/*.rb'].each { |file| require("./#{file}") }
 
 RSpec.configure do |config|
