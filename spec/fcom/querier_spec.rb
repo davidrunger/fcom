@@ -35,7 +35,7 @@ RSpec.describe Fcom::Querier do
                 --topo-order
                 --no-textconv
                 --author="David Runger"
-                HEAD
+                #{`git rev-list --max-parents=0 HEAD`.rstrip}..HEAD
                 -- .
                 |
                 rg "(the_search_string)|(^commit )|(^diff )" --color never --max-columns=2000 |

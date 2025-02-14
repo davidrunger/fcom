@@ -9,6 +9,26 @@ davidrunger/fcom`, I get this output:
 
 ![](https://s3.amazonaws.com/screens.davidrunger.com/2019-12-28-20-50-09-oect2(1).png)
 
+## Table of Contents
+
+<!--ts-->
+   * [Table of Contents](#table-of-contents)
+   * [Installation](#installation)
+   * [Dependencies](#dependencies)
+   * [Basic usage](#basic-usage)
+      * [Available options and examples](#available-options-and-examples)
+   * [The .fcom.yml config file](#the-fcomyml-config-file)
+      * [Example .fcom.yml config file](#example-fcomyml-config-file)
+   * [Performance considerations for -p/--path option](#performance-considerations-for--p--path-option)
+   * [Development](#development)
+   * [Contributing](#contributing)
+   * [License](#license)
+
+<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+<!-- Added by: david, at: Fri Feb 14 02:37:37 AM CST 2025 -->
+
+<!--te-->
+
 ## Installation
 
 ```
@@ -27,7 +47,7 @@ This gem assumes that you have `git` and [`rg` (ripgrep)][ripgrep] installed.
 $ fcom <search string> [options]
 ```
 
-#### Available options and examples
+### Available options and examples
 
 After installing, execute `fcom --help` to see usage examples and available options.
 
@@ -57,7 +77,7 @@ Examples:
     -h, --help         print this help information
 ```
 
-## `.fcom.yml` config file
+## The `.fcom.yml` config file
 We highly recommend that you create an `.fcom.yml` file in any repository that you plan to search
 with `fcom`.
 
@@ -67,7 +87,8 @@ repo/directory.
 (You might (or might not) want to add `.fcom.yml` to your `~/.gitignore_global` file, so that this
 file is not tracked by `git`.)
 
-#### Example `.fcom.yml` config file
+### Example `.fcom.yml` config file
+
 ```yaml
 repo: githubusername/reponame
 ```
@@ -76,6 +97,14 @@ The advantage of creating an `.fcom.yml` config file is that it will make the `f
 more quickly, because time will not be wasted parsing the output of `git remote [...]` in order to
 determine the URL of the repo's remote repository (which is used to construct links to matching
 commits).
+
+## Performance considerations for `-p`/`--path` option
+
+The performance of `fcom`'s querying and parsing of git history can significantly depend upon the `-p`/`--path` option provided (or lack thereof):
+
+1. **fastest:** provide a _file_ path as the `-p`/`--path` option
+2. **medium:** do not provide any `-p`/`--path` option (i.e. search the whole repository)
+3. **slowest:** provide a _subdirectory_ `-p`/`--path` option
 
 ## Development
 
