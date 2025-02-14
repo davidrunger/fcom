@@ -78,11 +78,6 @@ class Fcom::Querier
     commands.each do |command|
       Fcom.logger.debug("Executing command: #{command}")
 
-      # Add spacing if needed
-      if previous_command_generated_output
-        print "\n\n"
-      end
-
       PTY.spawn(command) do |stdout, _stdin, _pid|
         any_bytes_seen_for_command = false
 
@@ -92,6 +87,11 @@ class Fcom::Querier
         any_bytes_seen_for_command = true
 
         if first_byte
+          # Add spacing if needed
+          if previous_command_generated_output
+            print "\n\n"
+          end
+
           previous_command_generated_output = true
 
           print(first_byte)
