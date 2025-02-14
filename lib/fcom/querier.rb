@@ -105,9 +105,11 @@ class Fcom::Querier
 
   memo_wise \
   def filename_by_most_recent_containing_commit
-    {
-      most_recent_commit_with_file => path,
-    }.merge(renames.transform_keys { "#{_1}^" })
+    [
+      [most_recent_commit_with_file, path],
+    ] + renames.map do |commit, previous_name|
+      ["#{commit}^", previous_name]
+    end
   end
 
   memo_wise \
@@ -131,16 +133,29 @@ class Fcom::Querier
 
       Fcom.logger.debug("Querying renames with: #{command}")
 
-      `#{command}`.
-        split(/\n(?=[0-9a-f]{40})/).
-        to_h do |sha_and_name_info|
-          sha_and_name_info.
-            match(/(?<sha>[0-9a-f]{40})\n\nR\d+\s+(?<previous_name>\S+)?/).
-            named_captures.
-            values_at('sha', 'previous_name')
-        end.tap do |renames_hash|
-          Fcom.logger.debug("Found renames: #{renames_hash.pretty_inspect}")
-        end
+      renames =
+        `#{command}`.
+          split(/\n(?=[0-9a-f]{40})/).
+          flat_map do |sha_and_rename_info_lines|
+            sha, rename_info_lines =
+              sha_and_rename_info_lines.
+                match(/(?<sha>[0-9a-f]{40})\n\n(?<rename_info_lines>R\d+.*)/m).
+                named_captures.
+                values_at('sha', 'rename_info_lines')
+
+            rename_info_lines.lines.map do |rename_info_line|
+              previous_name =
+                rename_info_line.
+                  match(/\AR\d+\s+(?<previous_name>\S+)\s/).
+                  [](:previous_name)
+
+              [sha, previous_name]
+            end
+          end
+
+      Fcom.logger.debug("Found renames: #{renames.pretty_inspect}")
+
+      renames
     end
   end
 
