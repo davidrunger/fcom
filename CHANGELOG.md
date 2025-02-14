@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v0.14.3 (2025-02-14)
 - Use absolute path for parser in `--development` mode. This makes it possible not only to test queries within the `fcom` repo, but also in other repos.
 - Stop printing two extra newlines after completion.
