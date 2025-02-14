@@ -9,7 +9,10 @@ davidrunger/fcom`, I get this output:
 
 ![](https://s3.amazonaws.com/screens.davidrunger.com/2019-12-28-20-50-09-oect2(1).png)
 
+## Table of Contents
+
 <!--ts-->
+   * [Table of Contents](#table-of-contents)
    * [Installation](#installation)
    * [Dependencies](#dependencies)
    * [Basic usage](#basic-usage)
@@ -22,7 +25,7 @@ davidrunger/fcom`, I get this output:
    * [License](#license)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: david, at: Fri Feb 14 02:32:46 AM CST 2025 -->
+<!-- Added by: david, at: Fri Feb 14 02:37:37 AM CST 2025 -->
 
 <!--te-->
 
