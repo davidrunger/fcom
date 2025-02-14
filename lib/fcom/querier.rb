@@ -145,10 +145,11 @@ class Fcom::Querier
         already_selected = Set.new
         path_with_trailing_slash = File.join(path, '/').to_s
 
-        renames_landing_in_target_directory =
+        renames_landing_in_target_directory_from_outside_of_it =
           full_renames_history_for_path_for_git_log_renames_query.
-            select do |(_commit, _previous_name, new_name)|
+            select do |(_commit, previous_name, new_name)|
               (
+                !previous_name.start_with?(path_with_trailing_slash) &&
                 new_name.start_with?(path_with_trailing_slash) &&
                 !already_selected.include?(new_name)
               ).tap do |is_most_recent_rename_into_target_directory|
@@ -158,7 +159,7 @@ class Fcom::Querier
               end
             end
 
-        traced_back_renames(renames_landing_in_target_directory.map(&:last))
+        traced_back_renames(renames_landing_in_target_directory_from_outside_of_it.map(&:last))
       end
 
     Fcom.logger.debug(<<~LOG)
