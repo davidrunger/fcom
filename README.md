@@ -99,9 +99,9 @@ commits).
 
 The performance of `fcom`'s querying and parsing of git history can significantly depend upon the `-p`/`--path` option provided (or lack thereof):
 
-1. **fastest:** provide a _file_ path as the target
-2. **medium:** do not provide a `-p`/`--path` option (i.e. search the whole repository)
-3. **slowest:** provide a `-p`/`--path` option that is a subdirectory
+1. **fastest:** provide a _file_ path as the `-p`/`--path` option
+2. **medium:** do not provide any `-p`/`--path` option (i.e. search the whole repository)
+3. **slowest:** provide a _subdirectory_ `-p`/`--path` option
 
 ## Development
 
