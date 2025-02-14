@@ -133,11 +133,13 @@ class Fcom::Querier
   memo_wise \
   def filtered_renames
     filtered_renames =
-      if path == path_for_git_log_renames_query
-        # Path is either a file or root.
+      if path == Fcom::ROOT_PATH
+        []
+      elsif path == path_for_git_log_renames_query
+        # (Path is a file.)
         full_renames_history_for_path_for_git_log_renames_query
       else
-        # Path is a non-root directory.
+        # (Path is a non-root directory.)
         already_selected = Set.new
         path_with_trailing_slash = File.join(path, '/').to_s
 
