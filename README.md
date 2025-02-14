@@ -77,6 +77,14 @@ more quickly, because time will not be wasted parsing the output of `git remote 
 determine the URL of the repo's remote repository (which is used to construct links to matching
 commits).
 
+## Performance considerations for `-p`/`--path` option
+
+The performance of `fcom`'s querying and parsing of git history can significantly depend upon the `-p`/`--path` option provided (or lack thereof):
+
+1. **fastest:** provide a _file_ path as the target
+2. **medium:** do not provide a `-p`/`--path` option (i.e. search the whole repository)
+3. **slowest:** provide a `-p`/`--path` option that is a subdirectory
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run
