@@ -2,6 +2,7 @@
 - When using `--debug`, print the command used to query for renames and the parsed result.
 - Track renames even across bulk renames. Fixes a bug where we might fail to track back through a rename that occurred in a commit with other renames.
 - Search the git renaming history of the entire repo when filtering with a directory path. Fixes a bug wherein we failed to track renames into the specified target directory.
+- Search over the diff of commits at the start of a search range, using `git rev-list`. This fixes a bug wherein sometimes a change in a commit renaming a file would not be included in the results.
 
 ## v0.14.1 (2025-01-24)
 - Stream results progressively. ([#757](https://github.com/davidrunger/fcom/pull/757))

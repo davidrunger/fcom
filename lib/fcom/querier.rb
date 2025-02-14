@@ -41,15 +41,17 @@ class Fcom::Querier
           first_commit_sha
 
         <<~COMMAND.squish
+          git rev-list #{start_of_log} #{commit} |
+
           git log
             --format="commit %s|%H|%an|%cr (%ci)"
             --patch
             --full-diff
             --topo-order
             --no-textconv
+            --stdin
             #{%(--author="#{author}") if author}
             #{days_limiter}
-            #{start_of_log}..#{commit}
             --
             #{path_at_commit}
             |

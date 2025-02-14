@@ -28,14 +28,15 @@ RSpec.describe Fcom::Querier do
             expect(PTY).
               to receive(:spawn).
               with(<<~COMMAND.squish)
+                git rev-list #{`git rev-list --max-parents=0 HEAD`.rstrip} HEAD |
                 git log
                 --format="commit %s|%H|%an|%cr (%ci)"
                 --patch
                 --full-diff
                 --topo-order
                 --no-textconv
+                --stdin
                 --author="David Runger"
-                #{`git rev-list --max-parents=0 HEAD`.rstrip}..HEAD
                 -- .
                 |
                 rg "(the_search_string)|(^commit )|(^diff )" --color never --max-columns=2000 |
