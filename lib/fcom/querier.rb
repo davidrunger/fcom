@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'pp'
 require 'pty'
 
 require_relative 'options_helpers.rb'
@@ -128,6 +129,8 @@ class Fcom::Querier
         "--format=%H --name-status --follow --diff-filter=R #{days_limiter} " \
         "-- '#{path}'"
 
+      Fcom.logger.debug("Querying renames with: #{command}")
+
       `#{command}`.
         split(/\n(?=[0-9a-f]{40})/).
         to_h do |sha_and_name_info|
@@ -135,6 +138,8 @@ class Fcom::Querier
             match(/(?<sha>[0-9a-f]{40})\n\nR\d+\s+(?<previous_name>\S+)?/).
             named_captures.
             values_at('sha', 'previous_name')
+        end.tap do |renames_hash|
+          Fcom.logger.debug("Found renames: #{renames_hash.pretty_inspect}")
         end
     end
   end
