@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v0.14.2 (2025-02-14)
 - When using `--debug`, print the command used to query for renames and the parsed result.
 - Track renames even across bulk renames. Fixes a bug where we might fail to track back through a rename that occurred in a commit with other renames.
