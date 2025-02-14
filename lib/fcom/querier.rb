@@ -62,7 +62,7 @@ class Fcom::Querier
             #{@options[:rg_options]}
             |
 
-          #{'exe/' if development?}fcom #{quote}#{search_string}#{quote}
+          #{File.join(__dir__, '../../exe/') if development?}fcom #{quote}#{search_string}#{quote}
             #{"--days #{days}" if days}
             #{'--regex' if regex_mode?}
             #{'--debug' if debug?}

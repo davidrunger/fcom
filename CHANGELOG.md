@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Use absolute path for parser in `--development` mode. This makes it possible not only to test queries within the `fcom` repo, but also in other repos.
 
 ## v0.14.2 (2025-02-14)
 - When using `--debug`, print the command used to query for renames and the parsed result.
