@@ -15,7 +15,6 @@ class Fcom::Querier
     @options = options
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/PerceivedComplexity
   # rubocop:disable Metrics/MethodLength
   def query
@@ -110,7 +109,6 @@ class Fcom::Querier
   end
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/PerceivedComplexity
-  # rubocop:enable Metrics/CyclomaticComplexity
 
   private
 
@@ -132,7 +130,6 @@ class Fcom::Querier
     end
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/PerceivedComplexity
   memo_wise \
   def filtered_renames
@@ -172,7 +169,6 @@ class Fcom::Querier
     filtered_renames
   end
   # rubocop:enable Metrics/PerceivedComplexity
-  # rubocop:enable Metrics/CyclomaticComplexity
 
   def traced_back_renames(new_file_names)
     new_file_names_of_interest = Set.new(new_file_names)

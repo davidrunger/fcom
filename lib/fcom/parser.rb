@@ -10,7 +10,7 @@ class Fcom::Parser
     @options = options
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/PerceivedComplexity
   # rubocop:disable Metrics/MethodLength
   def parse
     expression_to_match = search_string
@@ -66,7 +66,7 @@ class Fcom::Parser
     end
   end
   # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/PerceivedComplexity
 
   private
 
