@@ -1,4 +1,4 @@
-## Unreleased
+## v0.14.4 (2025-02-25)
 - Fix bug where output might not be spaced after following a rename.
 
 ## v0.14.3 (2025-02-14)
