@@ -72,38 +72,30 @@ class Fcom::Querier
         COMMAND
       end
 
-    previous_command_generated_output = false
+    a_previous_command_generated_output_not_yet_spaced = false
 
     commands.each do |command|
       Fcom.logger.debug("Executing command: #{command}")
 
       PTY.spawn(command) do |stdout, _stdin, _pid|
-        any_bytes_seen_for_command = false
-
         # Read first byte to detect any output
         first_byte = stdout.read(1)
 
-        any_bytes_seen_for_command = true
-
         if first_byte
           # Add spacing if needed
-          if previous_command_generated_output
+          if a_previous_command_generated_output_not_yet_spaced
             print "\n\n"
           end
 
-          previous_command_generated_output = true
+          a_previous_command_generated_output_not_yet_spaced = true
 
           print(first_byte)
 
           # Now read the rest line by line
           stdout.each_line { puts(it) }
-        else
-          previous_command_generated_output = false
         end
       rescue Errno::EIO
-        if !any_bytes_seen_for_command
-          previous_command_generated_output = false
-        end
+        # The command produced no output.
       end
     end
   end

@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Fix bug where output might not be spaced after following a rename.
 
 ## v0.14.3 (2025-02-14)
 - Use absolute path for parser in `--development` mode. This makes it possible not only to test queries within the `fcom` repo, but also in other repos.
