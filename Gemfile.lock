@@ -52,7 +52,7 @@ GEM
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
     logger (1.6.6)
-    memo_wise (1.10.0)
+    memo_wise (1.11.0)
     method_source (1.1.0)
     minitest (5.25.4)
     parallel (1.26.3)
@@ -172,7 +172,7 @@ CHECKSUMS
   language_server-protocol (3.17.0.4) sha256=c484626478664fd13482d8180947c50a8590484b1258b99b7aedb3b69df89669
   lint_roller (1.1.0) sha256=2c0c845b632a7d172cb849cc90c1bce937a28c5c8ccccb50dfd46a485003cc87
   logger (1.6.6) sha256=dd618d24e637715472732e7eed02e33cfbdf56deaad225edd0f1f89d38024017
-  memo_wise (1.10.0) sha256=ae40ff8e7799697ff5d59d739b8766f76be22eba69c7c8468edb42ab83c94c3f
+  memo_wise (1.11.0) sha256=06ef23a1edb6b8ee4f37d950bba04836b437b4d1036e45d24c2fd2f25b5490c3
   method_source (1.1.0) sha256=181301c9c45b731b4769bc81e8860e72f9161ad7d66dd99103c9ab84f560f5c5
   minitest (5.25.4) sha256=9cf2cae25ac4dfc90c988ebc3b917f53c054978b673273da1bd20bcb0778f947
   parallel (1.26.3) sha256=d86babb7a2b814be9f4b81587bf0b6ce2da7d45969fab24d8ae4bf2bb4d4c7ef
