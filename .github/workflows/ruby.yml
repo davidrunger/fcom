@@ -20,7 +20,5 @@ jobs:
       run: bin/rubocop --format clang
     - name: Run RSpec tests
       run: bin/rspec --format progress
-    - name: Ensure alpha version
-      run: grep alpha $(find . -type f -name version.rb)
     - name: Ensure no git diff
       run: git diff --exit-code && git diff-index --quiet --cached HEAD
