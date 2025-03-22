@@ -15,8 +15,6 @@ class Fcom::Querier
     @options = options
   end
 
-  # rubocop:disable Metrics/PerceivedComplexity
-  # rubocop:disable Metrics/MethodLength
   def query
     expression_to_match = search_string
     expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless regex_mode?
@@ -99,8 +97,6 @@ class Fcom::Querier
       end
     end
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/PerceivedComplexity
 
   private
 
@@ -122,7 +118,6 @@ class Fcom::Querier
     end
   end
 
-  # rubocop:disable Metrics/PerceivedComplexity
   memo_wise \
   def filtered_renames
     filtered_renames =
@@ -160,7 +155,6 @@ class Fcom::Querier
 
     filtered_renames
   end
-  # rubocop:enable Metrics/PerceivedComplexity
 
   def traced_back_renames(new_file_names)
     new_file_names_of_interest = Set.new(new_file_names)
