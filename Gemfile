@@ -12,7 +12,6 @@ gemspec
 group :development, :test do
   gem 'bundler', require: false
   gem 'pry'
-  # Go back to upstream if/when https://github.com/deivid-rodriguez/pry-byebug/pull/ 428 is merged.
   gem 'pry-byebug', github: 'davidrunger/pry-byebug'
   gem 'rake', require: false
   gem 'rspec', require: false
