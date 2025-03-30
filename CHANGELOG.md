@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Use git `--diff-algorithm=default`.
 
 ## v0.14.4 (2025-02-25)
 - Fix bug where output might not be spaced after following a rename.

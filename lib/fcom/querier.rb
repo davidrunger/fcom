@@ -44,6 +44,7 @@ class Fcom::Querier
             --format="commit %s|%H|%an|%cr (%ci)"
             --patch
             --full-diff
+            --diff-algorithm=default
             --topo-order
             --no-textconv
             --stdin
