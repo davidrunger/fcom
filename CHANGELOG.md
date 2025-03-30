@@ -1,4 +1,7 @@
 ## Unreleased
+[no unreleased changes yet]
+
+## v0.14.5 (2025-03-30)
 - Use git `--diff-algorithm=default`.
 
 ## v0.14.4 (2025-02-25)
