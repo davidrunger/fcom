@@ -66,7 +66,7 @@ GEM
     pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    psych (5.2.4)
+    psych (5.2.5)
       date
       stringio
     racc (1.8.1)
@@ -184,7 +184,7 @@ CHECKSUMS
   prism (1.4.0) sha256=dc0e3e00e93160213dc2a65519d9002a4a1e7b962db57d444cf1a71565bb703e
   pry (0.15.2) sha256=12d54b8640d3fa29c9211dd4ffb08f3fd8bf7a4fd9b5a73ce5b59c8709385b6b
   pry-byebug (3.10.1)
-  psych (5.2.4) sha256=f2d9810f7f383a6b0fbc705202851e1a55b236bcb8e168ab5dfa5741842ec7c5
+  psych (5.2.5) sha256=4e83d1b48fad5defebfe92b6fa95df86f4451396a424724f23bc70ac78c2f0f9
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.2.1) sha256=46cb38dae65d7d74b6020a4ac9d48afed8eb8149c040eccf0523bec91907059d
