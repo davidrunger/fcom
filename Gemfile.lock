@@ -131,7 +131,7 @@ GEM
       rubocop (>= 1.72.0)
     securerandom (0.4.1)
     slop (4.10.1)
-    stringio (3.1.8)
+    stringio (3.1.9)
     tsort (0.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -210,7 +210,7 @@ CHECKSUMS
   runger_style (5.11.0) sha256=9b1c2b8c10c0512f878cdaf4a91bf7e4d135b071966cfb36af7debd62b393d71
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   slop (4.10.1) sha256=844322b5ffcf17ed4815fdb173b04a20dd82b4fd93e3744c88c8fafea696d9c7
-  stringio (3.1.8) sha256=99c43c3a9302843cca223fd985bfc503dd50a4b1723d3e4a9eb1d9c37d99e4ec
+  stringio (3.1.9) sha256=c111af13d3a73eab96a3bc2655ecf93788d13d28cb8e25c1dcbff89ace885121
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   unicode-display_width (3.2.0) sha256=0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42
