@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/davidrunger/pry-byebug
-  revision: 0b596b133d49f9d1dcf7bd6210604cfd60c45cba
+  revision: 5f95946a2506c84f2f49246b415108671397d5db
   specs:
     pry-byebug (3.10.1)
       pry (>= 0.13)
@@ -142,6 +142,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   bundler
@@ -218,7 +219,7 @@ CHECKSUMS
   uri (1.1.1) sha256=379fa58d27ffb1387eaada68c749d1426738bd0f654d812fcc07e7568f5c57c6
 
 RUBY VERSION
-  ruby 3.4.7p58
+  ruby 3.4.7
 
 BUNDLED WITH
   4.0.0
