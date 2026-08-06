@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Add a `-c`/`--commits` option to limit the number of commits shown.
 
 ## v0.14.5 (2025-03-30)
 - Use git `--diff-algorithm=default`.
