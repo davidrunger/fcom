@@ -14,6 +14,25 @@ RSpec.describe Fcom::OptionsHelpers do
   let(:options) { stubbed_slop_options(arguments_string) }
   let(:arguments_string) { 'the_search_target' }
 
+  describe '#commits' do
+    subject(:commits) { options_helper.send(:commits) }
+
+    context 'when a commits option is provided' do
+      let(:arguments_string) { "the_search_target -c #{commits_option}" }
+      let(:commits_option) { 5 }
+
+      it 'returns that number of commits' do
+        expect(commits).to eq(commits_option)
+      end
+    end
+
+    context 'when a commits option was not provided' do
+      it 'returns nil' do
+        expect(commits).to eq(nil)
+      end
+    end
+  end
+
   describe '#days' do
     subject(:days) { options_helper.send(:days) }
 

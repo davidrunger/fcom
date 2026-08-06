@@ -54,6 +54,7 @@ class Fcom
 
       options.string('--repo', 'GitHub repo (in form `username/repo`)', default: default_repo)
       options.integer('-d', '--days', 'number of days to search back')
+      options.integer('-c', '--commits', 'maximum number of commits to show')
       options.bool(
         '-r',
         '--regex',

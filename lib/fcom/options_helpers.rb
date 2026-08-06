@@ -8,6 +8,10 @@ module Fcom::OptionsHelpers
     @options[:author]
   end
 
+  def commits
+    @options[:commits]
+  end
+
   def days
     @options[:days]
   end

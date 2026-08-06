@@ -66,6 +66,7 @@ Examples:
 
     --repo             GitHub repo (in form `username/repo`)
     -d, --days         number of days to search back
+    -c, --commits      maximum number of commits to show
     -r, --regex        interpret search string as a regular expression
     -i, --ignore-case  search case-insensitively
     -p, --path         path (directory or file) used to filter results

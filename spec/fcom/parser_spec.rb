@@ -41,5 +41,37 @@ RSpec.describe Fcom::Parser do
 
       parse
     end
+
+    context 'when a commits option is provided' do
+      let(:options) do
+        stubbed_slop_options('the_search_string --repo username/reponame --commits 1')
+      end
+      let(:stubbed_stdin) do
+        <<~STUBBED_STDIN
+          commit First matching commit|1111111111111111111111111111111111111111|First Author|1 day ago
+          diff --git a/first_file.rb b/first_file.rb
+          + the_search_string in the first commit
+          commit Second matching commit|2222222222222222222222222222222222222222|Second Author|2 days ago
+          diff --git a/second_file.rb b/second_file.rb
+          + the_search_string in the second commit
+        STUBBED_STDIN
+      end
+
+      it 'prints no more than that number of commits' do
+        expect($stdout).to receive(:puts).with([
+          'First matching commit',
+          '11111111 ( https://github.com/username/reponame/commit/11111111 )',
+          'First Author',
+          '1 day ago',
+        ]).ordered
+        expect($stdout).to receive(:puts).
+          with(Fcom::Parser::COMMIT_HEADER_SEPARATOR).ordered
+        expect($stdout).to receive(:puts).with('first_file.rb').ordered
+        expect($stdout).to receive(:puts).
+          with("\e[32m+ the_search_string in the first commit\e[0m").ordered
+
+        parse
+      end
+    end
   end
 end

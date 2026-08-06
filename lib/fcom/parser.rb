@@ -6,8 +6,11 @@ using Rainbow
 class Fcom::Parser
   include ::Fcom::OptionsHelpers
 
+  COMMIT_HEADER_SEPARATOR = '=============================================='
+
   def initialize(options)
     @options = options
+    @matching_commits = 0
   end
 
   def parse
@@ -25,6 +28,8 @@ class Fcom::Parser
     $stdin.each do |line|
       line.chomp!
       if (match = line.match(/^commit (.*)/)&.[](1))
+        break if commit_limit_reached?
+
         previous_commit = match
       elsif line.match?(/^diff /)
         old_filename = line.match(%r{ a/(\S+)})&.[](1) || '[weird filename]'
@@ -42,10 +47,11 @@ class Fcom::Parser
 
           puts("\n\n") if a_commit_has_matched # print commit separator, if needed
           puts([title, sha_with_url, author, date])
-          puts('==============================================')
+          puts(COMMIT_HEADER_SEPARATOR)
 
           previous_commit = nil
           a_commit_has_matched = true
+          @matching_commits += 1
         end
 
         if filename
@@ -65,6 +71,10 @@ class Fcom::Parser
   end
 
   private
+
+  def commit_limit_reached?
+    commits && @matching_commits >= commits
+  end
 
   def path_match?(filename)
     return true if path == Fcom::ROOT_PATH

@@ -26,56 +26,16 @@ class Fcom::Querier
 
     quote = expression_to_match.include?('"') ? "'" : '"'
 
-    commands =
-      filename_by_most_recent_containing_commit.map do |commit, path_at_commit|
-        commit_without_caret = commit.first(40)
-
-        start_of_log =
-          filtered_renames.
-            drop_while { it.first != commit_without_caret }.
-            detect { it.last == path_at_commit }&.
-            first ||
-          first_commit_sha
-
-        <<~COMMAND.squish
-          git rev-list #{start_of_log} #{commit} |
-
-          git log
-            --format="commit %s|%H|%an|%cr (%ci)"
-            --patch
-            --full-diff
-            --diff-algorithm=default
-            --topo-order
-            --no-textconv
-            --stdin
-            #{%(--author="#{author}") if author}
-            #{days_limiter}
-            --
-            #{path_at_commit}
-            |
-
-          rg #{quote}(#{expression_to_match})|(^commit )|(^diff )#{quote}
-            --color never
-            #{'--ignore-case' if ignore_case?}
-            #{@options[:rg_options]}
-            |
-
-          #{File.join(__dir__, '../../exe/') if development?}fcom #{quote}#{search_string}#{quote}
-            #{"--days #{days}" if days}
-            #{'--regex' if regex_mode?}
-            #{'--debug' if debug?}
-            #{'--ignore-case' if ignore_case?}
-            --path #{path_at_commit}
-            --parse-mode
-            --repo #{repo}
-        COMMAND
-      end
-
     a_previous_command_generated_output_not_yet_spaced = false
+    remaining_commits = commits
 
-    commands.each do |command|
+    filename_by_most_recent_containing_commit.each do |commit, path_at_commit|
+      break if remaining_commits && remaining_commits <= 0
+
+      command = query_command(commit, path_at_commit, expression_to_match, quote, remaining_commits)
       Fcom.logger.debug("Executing command: #{command}")
 
+      commits_printed = 0
       PTY.spawn(command) do |stdout, _stdin, _pid|
         # Read first byte to detect any output
         first_byte = stdout.read(1)
@@ -91,15 +51,65 @@ class Fcom::Querier
           print(first_byte)
 
           # Now read the rest line by line
-          stdout.each_line { puts(it) }
+          stdout.each_line do |line|
+            puts(line)
+            commits_printed += 1 if line.chomp == Fcom::Parser::COMMIT_HEADER_SEPARATOR
+          end
         end
       rescue Errno::EIO
         # The command produced no output.
       end
+
+      remaining_commits -= commits_printed if remaining_commits
     end
   end
 
   private
+
+  def query_command(commit, path_at_commit, expression_to_match, quote, commits_limit)
+    commit_without_caret = commit.first(40)
+
+    start_of_log =
+      filtered_renames.
+        drop_while { it.first != commit_without_caret }.
+        detect { it.last == path_at_commit }&.
+        first ||
+      first_commit_sha
+
+    <<~COMMAND.squish
+      git rev-list #{start_of_log} #{commit} |
+
+      git log
+        --format="commit %s|%H|%an|%cr (%ci)"
+        --patch
+        --full-diff
+        --diff-algorithm=default
+        --topo-order
+        --no-textconv
+        --stdin
+        #{%(--author="#{author}") if author}
+        #{days_limiter}
+        --
+        #{path_at_commit}
+        |
+
+      rg #{quote}(#{expression_to_match})|(^commit )|(^diff )#{quote}
+        --color never
+        #{'--ignore-case' if ignore_case?}
+        #{@options[:rg_options]}
+        |
+
+      #{File.join(__dir__, '../../exe/') if development?}fcom #{quote}#{search_string}#{quote}
+        #{"--days #{days}" if days}
+        #{"--commits #{commits_limit}" if commits_limit}
+        #{'--regex' if regex_mode?}
+        #{'--debug' if debug?}
+        #{'--ignore-case' if ignore_case?}
+        --path #{path_at_commit}
+        --parse-mode
+        --repo #{repo}
+    COMMAND
+  end
 
   memo_wise \
   def filename_by_most_recent_containing_commit
