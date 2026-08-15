@@ -62,6 +62,8 @@ class Fcom::Querier
 
       remaining_commits -= commits_printed if remaining_commits
     end
+  rescue Interrupt
+    puts("\nSearch interrupted.")
   end
 
   private

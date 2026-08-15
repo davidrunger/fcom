@@ -108,5 +108,19 @@ RSpec.describe Fcom::Querier do
         query
       end
     end
+
+    context 'when the search is interrupted' do
+      before do
+        allow(querier).to receive_messages(
+          filename_by_most_recent_containing_commit: [%w[commit path]],
+          query_command: 'query command',
+        )
+        allow(PTY).to receive(:spawn).with('query command').and_raise(Interrupt)
+      end
+
+      it 'prints an interruption message without raising an exception' do
+        expect { query }.to output("\nSearch interrupted.\n").to_stdout
+      end
+    end
   end
 end

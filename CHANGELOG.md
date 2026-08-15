@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Exit cleanly with a clear message when interrupting a search with Ctrl-C.
 
 ## v0.15.0 (2026-08-06)
 - Add a `-c`/`--commits` option to limit the number of commits shown.
