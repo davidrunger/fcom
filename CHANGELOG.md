@@ -1,4 +1,7 @@
 ## Unreleased
+[no unreleased changes yet]
+
+## v0.15.1 (2026-08-15)
 - Exit cleanly with a clear message when interrupting a search with Ctrl-C.
 
 ## v0.15.0 (2026-08-06)
