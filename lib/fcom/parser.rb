@@ -15,7 +15,9 @@ class Fcom::Parser
 
   def parse
     expression_to_match = search_string
-    expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless regex_mode?
+    unless regex_mode?
+      expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ')
+    end
     regex =
       Regexp.new(
         "((\\+|-)\\s?.*#{expression_to_match}.*|Omitted long (matching )?line)",
@@ -28,7 +30,9 @@ class Fcom::Parser
     $stdin.each do |line|
       line.chomp!
       if (match = line.match(/^commit (.*)/)&.[](1))
-        break if commit_limit_reached?
+        if commit_limit_reached?
+          break
+        end
 
         previous_commit = match
       elsif line.match?(/^diff /)
@@ -45,7 +49,9 @@ class Fcom::Parser
           short_sha = sha[0, 8]
           sha_with_url = "#{short_sha} ( https://github.com/#{repo}/commit/#{short_sha} )"
 
-          puts("\n\n") if a_commit_has_matched # print commit separator, if needed
+          if a_commit_has_matched # print commit separator, if needed
+            puts("\n\n")
+          end
           puts([title, sha_with_url, author, date])
           puts(COMMIT_HEADER_SEPARATOR)
 
@@ -77,7 +83,9 @@ class Fcom::Parser
   end
 
   def path_match?(filename)
-    return true if path == Fcom::ROOT_PATH
+    if path == Fcom::ROOT_PATH
+      return true
+    end
 
     filename.include?(path.delete_prefix('./'))
   end
