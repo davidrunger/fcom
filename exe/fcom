@@ -41,7 +41,9 @@ opts =
   end
 
 # Note: mutating the globally accessible `Fcom.logger` constant like this is not thread-safe
-Fcom.logger.level = Logger::DEBUG if opts.debug?
+if opts.debug?
+  Fcom.logger.level = Logger::DEBUG
+end
 
 if !system('which rg > /dev/null')
   puts("fcom requires that `rg` (ripgrep) be available on your PATH, but it's not.".red)

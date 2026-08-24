@@ -17,7 +17,9 @@ class Fcom::Querier
 
   def query
     expression_to_match = search_string
-    expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ') unless regex_mode?
+    unless regex_mode?
+      expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ')
+    end
 
     if expression_to_match.nil? || expression_to_match.empty?
       puts('provide expression to match as first argument')
@@ -30,7 +32,9 @@ class Fcom::Querier
     remaining_commits = commits
 
     filename_by_most_recent_containing_commit.each do |commit, path_at_commit|
-      break if remaining_commits && remaining_commits <= 0
+      if remaining_commits && remaining_commits <= 0
+        break
+      end
 
       command = query_command(commit, path_at_commit, expression_to_match, quote, remaining_commits)
       Fcom.logger.debug("Executing command: #{command}")
@@ -53,14 +57,18 @@ class Fcom::Querier
           # Now read the rest line by line
           stdout.each_line do |line|
             puts(line)
-            commits_printed += 1 if line.chomp == Fcom::Parser::COMMIT_HEADER_SEPARATOR
+            if line.chomp == Fcom::Parser::COMMIT_HEADER_SEPARATOR
+              commits_printed += 1
+            end
           end
         end
       rescue Errno::EIO
         # The command produced no output.
       end
 
-      remaining_commits -= commits_printed if remaining_commits
+      if remaining_commits
+        remaining_commits -= commits_printed
+      end
     end
   rescue Interrupt
     puts("\nSearch interrupted.")
@@ -89,7 +97,9 @@ class Fcom::Querier
         --topo-order
         --no-textconv
         --stdin
-        #{%(--author="#{author}") if author}
+        #{if author
+            %(--author="#{author}")
+          end}
         #{days_limiter}
         --
         #{path_at_commit}
@@ -97,16 +107,30 @@ class Fcom::Querier
 
       rg #{quote}(#{expression_to_match})|(^commit )|(^diff )#{quote}
         --color never
-        #{'--ignore-case' if ignore_case?}
+        #{if ignore_case?
+            '--ignore-case'
+          end}
         #{@options[:rg_options]}
         |
 
-      #{File.join(__dir__, '../../exe/') if development?}fcom #{quote}#{search_string}#{quote}
-        #{"--days #{days}" if days}
-        #{"--commits #{commits_limit}" if commits_limit}
-        #{'--regex' if regex_mode?}
-        #{'--debug' if debug?}
-        #{'--ignore-case' if ignore_case?}
+      #{if development?
+          File.join(__dir__, '../../exe/')
+        end}fcom #{quote}#{search_string}#{quote}
+        #{if days
+            "--days #{days}"
+          end}
+        #{if commits_limit
+            "--commits #{commits_limit}"
+          end}
+        #{if regex_mode?
+            '--regex'
+          end}
+        #{if debug?
+            '--debug'
+          end}
+        #{if ignore_case?
+            '--ignore-case'
+          end}
         --path #{path_at_commit}
         --parse-mode
         --repo #{repo}
