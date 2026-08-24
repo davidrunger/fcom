@@ -9,3 +9,7 @@ updates:
       timezone: America/Chicago
     allow:
       - dependency-type: all
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
