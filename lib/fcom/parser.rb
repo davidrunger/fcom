@@ -84,9 +84,9 @@ class Fcom::Parser
 
   def path_match?(filename)
     if path == Fcom::ROOT_PATH
-      return true
+      true
+    else
+      filename.include?(path.delete_prefix('./'))
     end
-
-    filename.include?(path.delete_prefix('./'))
   end
 end
