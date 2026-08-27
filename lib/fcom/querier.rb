@@ -47,7 +47,7 @@ class Fcom::Querier
         if first_byte
           # Add spacing if needed
           if a_previous_command_generated_output_not_yet_spaced
-            print "\n\n"
+            print("\n\n")
           end
 
           a_previous_command_generated_output_not_yet_spaced = true
