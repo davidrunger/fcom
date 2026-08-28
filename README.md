@@ -4,8 +4,7 @@
 
 This is a CLI tool that I use to parse the git history of a repo.
 
-For example, if I use `fcom` to search this repo with `fcom "line.(green|red)" --regex --repo
-davidrunger/fcom`, I get this output:
+For example, if I use `fcom` to search this repo with `fcom "line.(green|red)" --repo davidrunger/fcom`, I get this output:
 
 ![](https://s3.amazonaws.com/screens.davidrunger.com/2019-12-28-20-50-09-oect2(1).png)
 
@@ -58,24 +57,24 @@ Usage: fcom <search string> [options]
 
 Examples:
   fcom update
-  fcom 'def update'
+  fcom 'user.update!' --fixed-strings
   fcom "def update" --days 60
-  fcom "[Uu]ser.*slug" -d 365 --regex
+  fcom "[Uu]ser.*slug" -d 365
   fcom options --path spec/
-  fcom "line.(green|red)" -d 365 --regex --repo davidrunger/fcom -a "David Runger"
+  fcom "line.(green|red)" -d 365 --repo davidrunger/fcom -a "David Runger"
 
-    --repo             GitHub repo (in form `username/repo`)
-    -d, --days         number of days to search back
-    -c, --commits      maximum number of commits to show
-    -r, --regex        interpret search string as a regular expression
-    -i, --ignore-case  search case-insensitively
-    -p, --path         path (directory or file) used to filter results
-    -a, --author       author
-    --rg-options       additional options passed directly to `rg` (e.g. `--rg-options "--max-columns 1000"`)
-    --debug            print debugging info
-    --init             create an `.fcom.yml` config file
-    -v, --version      print the version
-    -h, --help         print this help information
+    --repo               GitHub repo (in form `username/repo`)
+    -d, --days           number of days to search back
+    -c, --commits        maximum number of commits to show
+    -F, --fixed-strings  interpret search string as a fixed string
+    -i, --ignore-case    search case-insensitively
+    -p, --path           path (directory or file) used to filter results
+    -a, --author         author
+    --rg-options         additional options passed directly to `rg` (e.g. `--rg-options "--max-columns 1000"`)
+    --debug              print debugging info
+    --init               create an `.fcom.yml` config file
+    -v, --version        print the version
+    -h, --help           print this help information
 ```
 
 ## The `.fcom.yml` config file

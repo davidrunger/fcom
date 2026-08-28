@@ -22,7 +22,7 @@ RSpec.describe Fcom::Querier do
         end
 
         context 'when an author option is provided' do
-          let(:options) { stubbed_slop_options('the_search_string --author "David Runger"') }
+          let(:options) { stubbed_slop_options('the.search_string --author "David Runger"') }
 
           it 'spawns a pseudoterminal with the expected command' do
             expect(PTY).
@@ -40,9 +40,26 @@ RSpec.describe Fcom::Querier do
                 --author="David Runger"
                 -- .
                 |
-                rg "(the_search_string)|(^commit )|(^diff )" --color never --max-columns=2000 |
-                fcom "the_search_string" --path . --parse-mode --repo testuser/testrepo
+                rg "(the.search_string)|(^commit )|(^diff )" --color never --max-columns=2000 |
+                fcom "the.search_string" --path . --parse-mode --repo testuser/testrepo
               COMMAND
+
+            query
+          end
+        end
+
+        context 'when fixed strings are requested' do
+          let(:options) { stubbed_slop_options('the.search_string --fixed-strings') }
+
+          it 'passes fixed-string mode to the parser' do
+            expect(PTY).
+              to receive(:spawn).
+              with(
+                a_string_including(
+                  'rg "(the\\.search_string)|(^commit )|(^diff )"',
+                  'fcom "the.search_string" --fixed-strings',
+                ),
+              )
 
             query
           end

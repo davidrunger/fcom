@@ -17,7 +17,7 @@ class Fcom::Querier
 
   def query
     expression_to_match = search_string
-    unless regex_mode?
+    if fixed_strings?
       expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ')
     end
 
@@ -122,8 +122,8 @@ class Fcom::Querier
         #{if commits_limit
             "--commits #{commits_limit}"
           end}
-        #{if regex_mode?
-            '--regex'
+        #{if fixed_strings?
+            '--fixed-strings'
           end}
         #{if debug?
             '--debug'

@@ -11,6 +11,8 @@ RSpec.describe('fcom executable') do # rubocop:disable RSpec/DescribeClass
       expect(help_output).to include('fcom options --path spec/')
 
       expect(help_output).to include('--path')
+      expect(help_output).to include('-F, --fixed-strings')
+      expect(help_output).not_to include('--regex')
       expect(help_output).to include('print the version')
     end
 

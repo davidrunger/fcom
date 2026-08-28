@@ -42,6 +42,45 @@ RSpec.describe Fcom::Parser do
       parse
     end
 
+    context 'when the search string contains regex syntax' do
+      let(:options) { stubbed_slop_options('the.search --repo username/reponame') }
+      let(:output) { [] }
+      let(:stubbed_stdin) do
+        <<~STUBBED_STDIN
+          commit Matching commit|1111111111111111111111111111111111111111|Author|1 day ago
+          diff --git a/file.rb b/file.rb
+          + this line contains the.search
+          + this line contains theXsearch
+          + this line has no match
+        STUBBED_STDIN
+      end
+
+      before do
+        allow($stdout).to receive(:puts) { |*args| output.concat(args) }
+      end
+
+      it 'interprets the search string as a regular expression' do
+        parse
+
+        expect(output).to include("\e[32m+ this line contains the.search\e[0m")
+        expect(output).to include("\e[32m+ this line contains theXsearch\e[0m")
+        expect(output).not_to include("\e[32m+ this line has no match\e[0m")
+      end
+
+      context 'when fixed strings are requested' do
+        let(:options) do
+          stubbed_slop_options('the.search --fixed-strings --repo username/reponame')
+        end
+
+        it 'interprets the search string as a fixed string' do
+          parse
+
+          expect(output).to include("\e[32m+ this line contains the.search\e[0m")
+          expect(output).not_to include("\e[32m+ this line contains theXsearch\e[0m")
+        end
+      end
+    end
+
     context 'when a commits option is provided' do
       let(:options) do
         stubbed_slop_options('the_search_string --repo username/reponame --commits 1')
