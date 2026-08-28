@@ -1,4 +1,7 @@
 ## Unreleased
+[no unreleased changes yet]
+
+## v1.1.0 (2026-08-28)
 - Don't include Git patch metadata as matching lines.
 - Remove the hidden `--development` option. Use `bundle exec ruby exe/fcom` for development searches.
 

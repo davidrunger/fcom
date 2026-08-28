@@ -2,5 +2,5 @@
 
 # rubocop:disable-next Style/StaticClass
 class Fcom
-  VERSION = '1.0.1'
+  VERSION = '1.1.0'
 end
