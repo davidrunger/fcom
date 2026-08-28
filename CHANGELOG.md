@@ -1,4 +1,7 @@
 ## Unreleased
+[no unreleased changes yet]
+
+## v1.0.0 (2026-08-28)
 - **BREAKING CHANGE:** interpret search strings as regular expressions by default. Use `-F`/`--fixed-strings` to search for fixed strings.
 
 ## v0.15.1 (2026-08-15)
