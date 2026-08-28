@@ -1,4 +1,7 @@
 ## Unreleased
+[no unreleased changes yet]
+
+## v1.0.1 (2026-08-28)
 - Don't include commits or files whose matches are only in diff context lines.
 
 ## v1.0.0 (2026-08-28)
