@@ -14,10 +14,12 @@ class Fcom::Parser
   end
 
   def parse
-    expression_to_match = search_string
-    if fixed_strings?
-      expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ')
-    end
+    expression_to_match =
+      if fixed_strings?
+        Regexp.escape(search_string).gsub('\\ ', ' ')
+      else
+        search_string
+      end
     regex =
       Regexp.new(
         "((\\+|-)\\s?.*#{expression_to_match}.*|Omitted long (matching )?line)",
