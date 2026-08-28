@@ -4,9 +4,9 @@
 
 This is a CLI tool that I use to parse the git history of a repo.
 
-For example, if I use `fcom` to search this repo with `fcom "line.(green|red)" --repo davidrunger/fcom`, I get this output:
+For example, if I use `fcom` to search this repo with `fcom 'rename.?\b' --commits 2 --author "David Runger"`, I get this output:
 
-![](https://s3.amazonaws.com/screens.davidrunger.com/2019-12-28-20-50-09-oect2(1).png)
+![fcom screenshot](https://david-runger-public-uploads.s3.us-east-1.amazonaws.com/fcom-screenshot.png)
 
 ## Table of Contents
 
