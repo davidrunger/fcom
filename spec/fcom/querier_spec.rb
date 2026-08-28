@@ -32,6 +32,7 @@ RSpec.describe Fcom::Querier do
                 git log
                 --format="commit %s|%H|%an|%cr (%ci)"
                 --patch
+                --unified=0
                 --full-diff
                 --diff-algorithm=default
                 --topo-order

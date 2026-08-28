@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Don't include commits or files whose matches are only in diff context lines.
 
 ## v1.0.0 (2026-08-28)
 - **BREAKING CHANGE:** interpret search strings as regular expressions by default. Use `-F`/`--fixed-strings` to search for fixed strings.
