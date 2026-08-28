@@ -55,9 +55,9 @@ class Fcom
       options.integer('-d', '--days', 'number of days to search back')
       options.integer('-c', '--commits', 'maximum number of commits to show')
       options.bool(
-        '-r',
-        '--regex',
-        'interpret search string as a regular expression',
+        '-F',
+        '--fixed-strings',
+        'interpret search string as a fixed string',
         default: false,
       )
       options.bool('-i', '--ignore-case', 'search case-insensitively', default: false)

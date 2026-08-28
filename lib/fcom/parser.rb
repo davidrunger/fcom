@@ -15,7 +15,7 @@ class Fcom::Parser
 
   def parse
     expression_to_match = search_string
-    unless regex_mode?
+    if fixed_strings?
       expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ')
     end
     regex =

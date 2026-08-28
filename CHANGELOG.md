@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- **BREAKING CHANGE:** interpret search strings as regular expressions by default. Use `-F`/`--fixed-strings` to search for fixed strings.
 
 ## v0.15.1 (2026-08-15)
 - Exit cleanly with a clear message when interrupting a search with Ctrl-C.

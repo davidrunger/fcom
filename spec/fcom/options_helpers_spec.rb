@@ -53,4 +53,22 @@ RSpec.describe Fcom::OptionsHelpers do
       end
     end
   end
+
+  describe '#fixed_strings?' do
+    subject(:fixed_strings?) { options_helper.send(:fixed_strings?) }
+
+    context 'when a fixed strings option is provided' do
+      let(:arguments_string) { 'the_search_target --fixed-strings' }
+
+      it 'returns true' do
+        expect(fixed_strings?).to eq(true)
+      end
+    end
+
+    context 'when a fixed strings option was not provided' do
+      it 'returns false' do
+        expect(fixed_strings?).to eq(false)
+      end
+    end
+  end
 end

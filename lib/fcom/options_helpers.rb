@@ -24,8 +24,8 @@ module Fcom::OptionsHelpers
     @options[:path]
   end
 
-  def regex_mode?
-    @options.regex?
+  def fixed_strings?
+    @options.fixed_strings?
   end
 
   def debug?
