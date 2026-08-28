@@ -79,7 +79,6 @@ class Fcom
       )
       options.bool('--debug', 'print debugging info', default: false)
       options.bool('--parse-mode', 'whether we are in parse mode', default: false, help: false)
-      options.bool('--development', 'use local `fcom` executable', default: false, help: false)
     end
   end
 end
