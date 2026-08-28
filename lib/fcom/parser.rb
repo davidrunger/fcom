@@ -22,7 +22,7 @@ class Fcom::Parser
       end
     regex =
       Regexp.new(
-        "((\\+|-)\\s?.*#{expression_to_match}.*|Omitted long (matching )?line)",
+        "\\A(?:[+-]\\s?.*(?:#{expression_to_match}).*|Omitted long (?:matching )?line)",
         ignore_case? ? Regexp::IGNORECASE : nil,
       )
 
