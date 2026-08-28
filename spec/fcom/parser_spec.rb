@@ -42,6 +42,24 @@ RSpec.describe Fcom::Parser do
       parse
     end
 
+    context 'when a search string matches only a diff file header' do
+      let(:options) { stubbed_slop_options('path|file --repo username/reponame') }
+      let(:stubbed_stdin) do
+        <<~STUBBED_STDIN
+          commit Matching commit|1111111111111111111111111111111111111111|Author|1 day ago
+          diff --git a/Gemfile.lock b/Gemfile.lock
+          --- a/Gemfile.lock
+          +++ b/Gemfile.lock
+        STUBBED_STDIN
+      end
+
+      it 'does not print the commit' do
+        expect($stdout).not_to receive(:puts)
+
+        parse
+      end
+    end
+
     context 'when the search string contains regex syntax' do
       let(:options) { stubbed_slop_options('the.search --repo username/reponame') }
       let(:output) { [] }

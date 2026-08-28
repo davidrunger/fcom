@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Don't include diff file headers as matching lines.
 
 ## v1.0.1 (2026-08-28)
 - Don't include commits or files whose matches are only in diff context lines.
