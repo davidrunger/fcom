@@ -16,10 +16,12 @@ class Fcom::Querier
   end
 
   def query
-    expression_to_match = search_string
-    if fixed_strings?
-      expression_to_match = Regexp.escape(expression_to_match).gsub('\\ ', ' ')
-    end
+    expression_to_match =
+      if fixed_strings?
+        Regexp.escape(search_string).gsub('\\ ', ' ')
+      else
+        search_string
+      end
 
     if expression_to_match.nil? || expression_to_match.empty?
       puts('provide expression to match as first argument')
