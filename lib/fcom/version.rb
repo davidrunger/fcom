@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Style/StaticClass
+# rubocop:disable-next Style/StaticClass
 class Fcom
   VERSION = '0.15.1'
 end
-# rubocop:enable Style/StaticClass
