@@ -45,6 +45,8 @@ class Fcom::Parser
           when old_filename == new_filename then old_filename
           else "#{old_filename} --> #{new_filename}"
           end
+      elsif line.match?(%r{\A(?:---|\+\+\+) })
+        next
       elsif line.match?(regex) && (filename.blank? || path_match?(filename))
         if previous_commit
           title, sha, author, date = previous_commit.split('|')
