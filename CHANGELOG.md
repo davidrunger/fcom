@@ -1,5 +1,5 @@
 ## Unreleased
-- Don't include diff file headers as matching lines.
+- Don't include Git patch metadata as matching lines.
 - Remove the hidden `--development` option. Use `bundle exec ruby exe/fcom` for development searches.
 
 ## v1.0.1 (2026-08-28)

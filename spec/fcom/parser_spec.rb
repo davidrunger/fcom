@@ -42,21 +42,50 @@ RSpec.describe Fcom::Parser do
       parse
     end
 
-    context 'when a search string matches only a diff file header' do
+    context 'when a search string matches only Git patch metadata' do
       let(:options) { stubbed_slop_options('path|file --repo username/reponame') }
       let(:stubbed_stdin) do
         <<~STUBBED_STDIN
           commit Matching commit|1111111111111111111111111111111111111111|Author|1 day ago
           diff --git a/Gemfile.lock b/Gemfile.lock
+          new file mode 100755
+          index 0000000..1111111
           --- a/Gemfile.lock
           +++ b/Gemfile.lock
+          @@ -15 +17 @@ ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile",
+          Binary files a/Gemfile.lock and b/Gemfile.lock differ
+          rename from Gemfile.lock
+          rename to Gemfile.lock
+          \\ No newline at end of file
         STUBBED_STDIN
       end
 
-      it 'does not print the commit' do
+      it 'does not print anything' do
         expect($stdout).not_to receive(:puts)
 
         parse
+      end
+    end
+
+    context 'when a search string matches changed content' do
+      let(:options) { stubbed_slop_options('path|file --repo username/reponame') }
+      let(:output) { [] }
+      let(:stubbed_stdin) do
+        <<~STUBBED_STDIN
+          commit Matching commit|1111111111111111111111111111111111111111|Author|1 day ago
+          diff --git a/file.rb b/file.rb
+          + path|file changed content
+        STUBBED_STDIN
+      end
+
+      before do
+        allow($stdout).to receive(:puts) { |*args| output.concat(args) }
+      end
+
+      it 'prints the changed line' do
+        parse
+
+        expect(output).to include("\e[32m+ path|file changed content\e[0m")
       end
     end
 
