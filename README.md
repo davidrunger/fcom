@@ -108,9 +108,7 @@ The performance of `fcom`'s querying and parsing of git history can significantl
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run
-the tests. You can also run `bin/console` for an interactive prompt that will allow you to
-experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `bundle exec rake spec` to run the tests. To run a search using the local executable, use `bundle exec ruby exe/fcom`, for example `bundle exec ruby exe/fcom 'rename.?\b' --commits 2`. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run (in this repository's root directory):
 

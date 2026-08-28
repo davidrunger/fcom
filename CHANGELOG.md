@@ -1,5 +1,6 @@
 ## Unreleased
 - Don't include diff file headers as matching lines.
+- Remove the hidden `--development` option. Use `bundle exec ruby exe/fcom` for development searches.
 
 ## v1.0.1 (2026-08-28)
 - Don't include commits or files whose matches are only in diff context lines.

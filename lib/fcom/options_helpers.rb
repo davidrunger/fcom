@@ -32,10 +32,6 @@ module Fcom::OptionsHelpers
     @options.debug?
   end
 
-  def development?
-    @options.development?
-  end
-
   def repo
     @options[:repo]
   end
