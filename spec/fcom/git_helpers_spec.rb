@@ -7,18 +7,16 @@ RSpec.describe Fcom::GitHelpers do
     subject(:repo) { git_helper.repo }
 
     context 'when Fcom::GitHelpers#repo is not stubbed' do
-      # rubocop:disable RSpec/AnyInstance
+      # rubocop:disable-next RSpec/AnyInstance
       before { allow_any_instance_of(Fcom::GitHelpers).to receive(:repo).and_call_original }
-      # rubocop:enable RSpec/AnyInstance
 
       context 'when `git remote -v` is stubbed' do
         before do
-          # rubocop:disable RSpec/AnyInstance
+          # rubocop:disable-next RSpec/AnyInstance
           expect_any_instance_of(Kernel).
             to receive(:`).
             with('git remote -v').
             and_return(git_remote_output)
-          # rubocop:enable RSpec/AnyInstance
         end
 
         context 'when `git remote -v` lists an origin with a .git extension' do

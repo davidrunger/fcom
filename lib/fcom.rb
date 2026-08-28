@@ -10,10 +10,9 @@ using Rainbow
 
 # This `Fcom` class is the namespace within which most of the gem's code is written.
 # We need to define the class before requiring the modules.
-# rubocop:disable Lint/EmptyClass
+# rubocop:disable-next Lint/EmptyClass
 class Fcom
 end
-# rubocop:enable Lint/EmptyClass
 
 Dir["#{File.dirname(__FILE__)}/fcom/*.rb"].each { |file| require file }
 
