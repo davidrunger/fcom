@@ -10,10 +10,14 @@ RSpec.describe Fcom::Querier do
 
     context 'when a system call indicates that the current directory exists' do
       before do
-        expect(querier).
+        allow(querier).
           to receive(:system).
           with('test -e "."').
           and_return(true)
+      end
+
+      after do
+        expect(querier).to have_received(:system).with('test -e "."').once
       end
 
       context 'when a path option is not provided' do
@@ -25,27 +29,28 @@ RSpec.describe Fcom::Querier do
           let(:options) { stubbed_slop_options('the.search_string --author "David Runger"') }
 
           it 'spawns a pseudoterminal with the expected command' do
-            expect(PTY).
-              to receive(:spawn).
-              with(<<~COMMAND.squish)
-                git rev-list #{`git rev-list --max-parents=0 HEAD`.rstrip} HEAD |
-                git log
-                --format="commit %s|%H|%an|%cr (%ci)"
-                --patch
-                --unified=0
-                --full-diff
-                --diff-algorithm=default
-                --topo-order
-                --no-textconv
-                --stdin
-                --author="David Runger"
-                -- .
-                |
-                rg "(the.search_string)|(^commit )|(^diff )" --color never --max-columns=2000 |
-                fcom "the.search_string" --path . --parse-mode --repo testuser/testrepo
-              COMMAND
+            expected_command = <<~COMMAND.squish
+              git rev-list #{`git rev-list --max-parents=0 HEAD`.rstrip} HEAD |
+              git log
+              --format="commit %s|%H|%an|%cr (%ci)"
+              --patch
+              --unified=0
+              --full-diff
+              --diff-algorithm=default
+              --topo-order
+              --no-textconv
+              --stdin
+              --author="David Runger"
+              -- .
+              |
+              rg "(the.search_string)|(^commit )|(^diff )" --color never --max-columns=2000 |
+              fcom "the.search_string" --path . --parse-mode --repo testuser/testrepo
+            COMMAND
+            allow(PTY).to receive(:spawn).with(expected_command)
 
             query
+
+            expect(PTY).to have_received(:spawn).with(expected_command).once
           end
         end
 
@@ -53,7 +58,7 @@ RSpec.describe Fcom::Querier do
           let(:options) { stubbed_slop_options('the.search_string --fixed-strings') }
 
           it 'passes fixed-string mode to the parser' do
-            expect(PTY).
+            allow(PTY).
               to receive(:spawn).
               with(
                 a_string_including(
@@ -63,6 +68,13 @@ RSpec.describe Fcom::Querier do
               )
 
             query
+
+            expect(PTY).to have_received(:spawn).with(
+              a_string_including(
+                'rg "(the\\.search_string)|(^commit )|(^diff )"',
+                'fcom "the.search_string" --fixed-strings',
+              ),
+            ).once
           end
         end
 
@@ -70,11 +82,14 @@ RSpec.describe Fcom::Querier do
           let(:options) { stubbed_slop_options('the_search_string --commits 3') }
 
           it 'passes the option to the parser' do
-            expect(PTY).
+            allow(PTY).
               to receive(:spawn).
               with(a_string_including('fcom "the_search_string" --commits 3'))
 
             query
+
+            expect(PTY).to have_received(:spawn).
+              with(a_string_including('fcom "the_search_string" --commits 3')).once
           end
         end
       end
@@ -94,29 +109,25 @@ RSpec.describe Fcom::Querier do
       end
 
       it 'applies the limit across the combined output' do
-        expect(querier).
+        allow(querier).
           to receive(:query_command).
           with('newest', 'new_path', 'the_search_string', '"', 2).
-          ordered.
           and_return('first command')
-        expect(PTY).
+        allow(PTY).
           to receive(:spawn).
           with('first command').
-          ordered.
           and_yield(
             StringIO.new("First commit\n#{Fcom::Parser::COMMIT_HEADER_SEPARATOR}\n"),
             nil,
             nil,
           )
-        expect(querier).
+        allow(querier).
           to receive(:query_command).
           with('older', 'old_path', 'the_search_string', '"', 1).
-          ordered.
           and_return('second command')
-        expect(PTY).
+        allow(PTY).
           to receive(:spawn).
           with('second command').
-          ordered.
           and_yield(
             StringIO.new("Second commit\n#{Fcom::Parser::COMMIT_HEADER_SEPARATOR}\n"),
             nil,
@@ -124,6 +135,13 @@ RSpec.describe Fcom::Querier do
           )
 
         query
+
+        expect(querier).to have_received(:query_command).
+          with('newest', 'new_path', 'the_search_string', '"', 2).once.ordered
+        expect(PTY).to have_received(:spawn).with('first command').once.ordered
+        expect(querier).to have_received(:query_command).
+          with('older', 'old_path', 'the_search_string', '"', 1).once.ordered
+        expect(PTY).to have_received(:spawn).with('second command').once.ordered
       end
     end
 
